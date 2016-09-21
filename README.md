@@ -662,7 +662,7 @@ Add a new place to Google Maps. The new place is available immediately in Nearby
 | `longitude`            | string    |  The longitude of place. |
 | `name`                 | string    |  The full name of the place. No more than 255 characters. |
 | `phoneNumber (optional)` | string    |  The phone number of the place. |
-| `types`                | string    |  The category to which this place. See [supported types](https://developers.google.com/places/supported_types) |
+| `types`                | array    |  The category to which this place. It may contain an array, but now for the post, you can specify only one type. See [supported types](https://developers.google.com/places/supported_types) |
 | `website (optional)`   | string    |  The URL-address of the official web site of the place, such as home organization page |
 
 **Request example**

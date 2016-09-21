@@ -7,15 +7,31 @@ $app->post('/searchPlacesByText', function ($request, $response, $args) {
     $post_data = [];
     $post_data['api_key'] = filter_var($data['api_key'], FILTER_SANITIZE_STRING);
     $post_data['query'] = filter_var($data['query'], FILTER_SANITIZE_STRING);
-    $post_data['latitude'] = filter_var($data['latitude'], FILTER_SANITIZE_STRING);
-    $post_data['longitude'] = filter_var($data['longitude'], FILTER_SANITIZE_STRING);
-    $post_data['radius'] = filter_var($data['radius'], FILTER_SANITIZE_STRING);
-    $post_data['language'] = filter_var($data['language'], FILTER_SANITIZE_STRING);
-    $post_data['minimum_price'] = filter_var($data['minimum_price'], FILTER_SANITIZE_STRING);
-    $post_data['maximum_price'] = filter_var($data['maximum_price'], FILTER_SANITIZE_STRING);
-    $post_data['open_now'] = filter_var($data['open_now'], FILTER_SANITIZE_STRING);
-    $post_data['type'] = filter_var($data['type'], FILTER_SANITIZE_STRING);
-    
+    if(!empty($data['latitude'])) {
+        $post_data['latitude'] = filter_var($data['latitude'], FILTER_SANITIZE_STRING);
+    }
+    if(!empty($data['longitude'])) {
+        $post_data['longitude'] = filter_var($data['longitude'], FILTER_SANITIZE_STRING);
+    }
+    if(!empty($data['radius'])) {
+        $post_data['radius'] = filter_var($data['radius'], FILTER_SANITIZE_STRING);
+    }
+    if(!empty($data['language'])) {
+        $post_data['language'] = filter_var($data['language'], FILTER_SANITIZE_STRING);
+    }
+    if(!empty($data['minimum_price'])) {
+        $post_data['minimum_price'] = filter_var($data['minimum_price'], FILTER_SANITIZE_STRING);
+    }
+    if(!empty($data['maximum_price'])) {
+        $post_data['maximum_price'] = filter_var($data['maximum_price'], FILTER_SANITIZE_STRING);
+    }
+    if(!empty($data['open_now'])) {
+        $post_data['open_now'] = filter_var($data['open_now'], FILTER_SANITIZE_STRING);
+    }
+    if(!empty($data['type'])) {
+        $post_data['type'] = filter_var($data['type'], FILTER_SANITIZE_STRING);
+    }
+        
     $error = [];
     if(empty($post_data['api_key'])) {
         $error[] = 'api_key cannot be empty';

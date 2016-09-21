@@ -66,7 +66,12 @@ class BaseTestCase extends \PHPUnit_Framework_TestCase
         }
 
         // Register routes
-        require __DIR__ . '/../../src/routes.php';
+        require __DIR__ . '/../../src/routes/getNearbyPlaces.php';
+        require __DIR__ . '/../../src/routes/searchPlacesByText.php';
+        require __DIR__ . '/../../src/routes/getNearbyPlacesRadar.php';
+        require __DIR__ . '/../../src/routes/getPlaceDetails.php';
+        require __DIR__ . '/../../src/routes/getImageURL.php';
+        require __DIR__ . '/../../src/routes/addPlace.php';
 
         // Process the application
         $response = $app->process($request, $response);

@@ -7,7 +7,8 @@ $app->post('/getImageURL', function ($request, $response, $args) {
     $post_data = [];
     $post_data['api_key'] = filter_var($data['api_key'], FILTER_SANITIZE_STRING);
     $post_data['image_id'] = filter_var($data['image_id'], FILTER_SANITIZE_STRING);
-    $post_data['maxwidth'] = filter_var($data['maxwidth'], FILTER_SANITIZE_STRING);
+    $post_data['max_width'] = filter_var($data['max_width'], FILTER_SANITIZE_STRING);
+    $post_data['max_height'] = filter_var($data['max_height'], FILTER_SANITIZE_STRING);
     
     $error = [];
     if(empty($post_data['api_key'])) {
@@ -15,6 +16,9 @@ $app->post('/getImageURL', function ($request, $response, $args) {
     }
     if(empty($post_data['image_id'])) {
         $error[] = 'image_id cannot be empty';
+    }
+    if(empty($post_data['max_width']) && empty($post_data['max_height'])) {
+        $error[] = 'max_width or max_height cannot be empty';
     }
     
     if(!empty($error)) {
@@ -27,7 +31,12 @@ $app->post('/getImageURL', function ($request, $response, $args) {
     
     $query['key'] = $post_data['api_key'];
     $query['photoreference'] = $post_data['image_id'];
-    $query['maxwidth'] = $post_data['maxwidth'];
+    if(!empty($post_data['max_width'])) {
+        $query['maxwidth'] = $post_data['max_width'];
+    }
+    if(!empty($post_data['max_height'])) {
+        $query['maxheight'] = $post_data['max_height'];
+    }
     
     
     $query_str = $settings['api_url'] . 'photo?'. http_build_query($query);

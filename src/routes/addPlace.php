@@ -7,14 +7,20 @@ $app->post('/addPlace', function ($request, $response, $args) {
     $post_data = [];
     $post_data['api_key'] = filter_var($data['api_key'], FILTER_SANITIZE_STRING);
     $post_data['accuracy'] = filter_var($data['accuracy'], FILTER_SANITIZE_STRING);
-    $post_data['address'] = filter_var($data['address'], FILTER_SANITIZE_STRING);
+    if(!empty($data['address'])) {
+        $post_data['address'] = filter_var($data['address'], FILTER_SANITIZE_STRING);
+    }
     $post_data['language'] = filter_var($data['language'], FILTER_SANITIZE_STRING);
     $post_data['latitude'] = filter_var($data['latitude'], FILTER_SANITIZE_STRING);
     $post_data['longitude'] = filter_var($data['longitude'], FILTER_SANITIZE_STRING);
     $post_data['name'] = filter_var($data['name'], FILTER_SANITIZE_STRING);
-    $post_data['phoneNumber'] = filter_var($data['phoneNumber'], FILTER_SANITIZE_STRING);
+    if(!empty($data['phoneNumber'])) {
+        $post_data['phoneNumber'] = filter_var($data['phoneNumber'], FILTER_SANITIZE_STRING);
+    }
     $post_data['types'] = filter_var($data['types'], FILTER_SANITIZE_STRING);
-    $post_data['website'] = filter_var($data['website'], FILTER_SANITIZE_STRING);
+    if(!empty($data['website'])) {
+        $post_data['website'] = filter_var($data['website'], FILTER_SANITIZE_STRING);
+    }
     
     $error = [];
     if(empty($post_data['api_key'])) {
@@ -49,9 +55,9 @@ $app->post('/addPlace', function ($request, $response, $args) {
     
     $query['key'] = $post_data['api_key'];
     
-    $params['location']['lat'] = $post_data['latitude'];
-    $params['location']['lng'] = $post_data['longitude'];
-    $params['accuracy'] = $post_data['accuracy'];
+    $params['location']['lat'] = (float) $post_data['latitude'];
+    $params['location']['lng'] = (float) $post_data['longitude'];
+    $params['accuracy'] = (int) $post_data['accuracy'];
     $params['name'] = $post_data['name'];
     if(!empty($post_data['address'])) {
         $params['address'] = $post_data['address'];
@@ -65,10 +71,9 @@ $app->post('/addPlace', function ($request, $response, $args) {
         $params['website'] = $post_data['website'];
     }
     
-    //print_r(json_encode($params)); die;
-    $query_str = $settings['api_url'] . 'add/json';
+    $query_str = $settings['api_url'] . 'add/json?key='.$query['key'];
     
-    $headers['Host'] = 'maps.googleapis.com';
+    $headers['Content-Type'] = 'application/json';
     
     $client = $this->httpClient;
 
@@ -76,7 +81,6 @@ $app->post('/addPlace', function ($request, $response, $args) {
 
         $resp = $client->post( $query_str, 
             [
-                'query' => $query,
                 'headers' => $headers,
                 'body' => json_encode($params)
             ]);
