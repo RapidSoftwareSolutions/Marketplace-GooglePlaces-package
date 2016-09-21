@@ -35,7 +35,7 @@ Search for places within a specified area. You can refine your search request by
 | `maximum_price (optional)`  | string    |  The price range, limiting the search results. Valid entries are from 0 (free) to 4 (most expensive). |
 | `name (optional)`      | string    |  The space-separated words that are being sought in the names of places. |
 | `open_now (optional)`  | string    |  Limit search results to only those organizations (establishments) that are open at the time of sending the request. |
-| `type (optional)`      | string    |  limit search results to only those places whose type corresponds to at least one of these. Types should be separated by a vertical bar (type1 | type2 | etc). See the [List of supported types](https://developers.google.com/places/supported_types?authuser=1) |
+| `type (optional)`      | string    |  limit search results to only those places whose type corresponds to at least one of these. Types should be separated by a vertical bar (type1 \| type2 \| etc). See the [List of supported types](https://developers.google.com/places/supported_types?authuser=1) |
 
 
 **Request example**
