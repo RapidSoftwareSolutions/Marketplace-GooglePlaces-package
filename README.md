@@ -157,7 +157,7 @@ The service responds with a list of places matching the text string and any loca
 | `minimum_price (optional)`  | string    |  The price range, limiting the search results. Valid entries are from 0 (free) to 4 (most expensive). |
 | `maximum_price (optional)`  | string    |  The price range, limiting the search results. Valid entries are from 0 (free) to 4 (most expensive). |
 | `open_now (optional)`  | string    |  Limit search results to only those organizations (establishments) that are open at the time of sending the request. |
-| `type (optional)`      | string    |  limit search results to only those places whose type corresponds to at least one of these. Types should be separated by a vertical bar (type1 | type2 | etc). See the [List of supported types](https://developers.google.com/places/supported_types?authuser=1) |
+| `type (optional)`      | string    |  limit search results to only those places whose type corresponds to at least one of these. Types should be separated by a vertical bar (type1 \| type2 \| etc). See the [List of supported types](https://developers.google.com/places/supported_types?authuser=1) |
 
 
 **Request example**
@@ -336,7 +336,7 @@ Search for up to 200 places at once, but with less detail than is typically retu
 | `language (optional)`  | string    |  The language code, which should be possible to return the results. See the [List of supported languages and their codes](https://developers.google.com/maps/faq?authuser=1#languagesupport). || `minimum_price (optional)`  | string    |  The price range, limiting the search results. Valid entries are from 0 (free) to 4 (most expensive). |
 | `maximum_price (optional)`  | string    |  The price range, limiting the search results. Valid entries are from 0 (free) to 4 (most expensive). |
 | `open_now (optional)`  | string    |  Limit search results to only those organizations (establishments) that are open at the time of sending the request. |
-| `type (optional)`      | string    |  limit search results to only those places whose type corresponds to at least one of these. Types should be separated by a vertical bar (type1 | type2 | etc). See the [List of supported types](https://developers.google.com/places/supported_types?authuser=1) |
+| `type (optional)`      | string    |  limit search results to only those places whose type corresponds to at least one of these. Types should be separated by a vertical bar (type1 \| type2 \| etc). See the [List of supported types](https://developers.google.com/places/supported_types?authuser=1) |
 
 
 **Request example**
