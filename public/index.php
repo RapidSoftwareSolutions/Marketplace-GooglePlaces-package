@@ -30,6 +30,7 @@ require __DIR__ . '/../src/routes/getNearbyPlacesRadar.php';
 require __DIR__ . '/../src/routes/getPlaceDetails.php';
 require __DIR__ . '/../src/routes/getImageURL.php';
 require __DIR__ . '/../src/routes/addPlace.php';
+require __DIR__ . '/../src/routes/metadata.php';
 
 // Run app
 $app->run();

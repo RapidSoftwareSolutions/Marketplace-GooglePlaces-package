@@ -35,7 +35,7 @@ Search for places within a specified area. You can refine your search request by
 | `maximum_price (optional)`  | string    |  The price range, limiting the search results. Valid entries are from 0 (free) to 4 (most expensive). |
 | `name (optional)`      | string    |  The space-separated words that are being sought in the names of places. |
 | `open_now (optional)`  | string    |  Limit search results to only those organizations (establishments) that are open at the time of sending the request. |
-| `type (optional)`      | string    |  limit search results to only those places whose type corresponds to at least one of these. Types should be separated by a vertical bar (type1 \| type2 \| etc). See the [List of supported types](https://developers.google.com/places/supported_types?authuser=1) |
+| `type (optional)`      | string    |  Limit search results to only those places whose type corresponds to at least one of these. Types should be separated by a vertical bar (type1 \| type2 \| etc). See the [List of supported types](https://developers.google.com/places/supported_types?authuser=1) |
 
 
 **Request example**
@@ -157,7 +157,7 @@ The service responds with a list of places matching the text string and any loca
 | `minimum_price (optional)`  | string    |  The price range, limiting the search results. Valid entries are from 0 (free) to 4 (most expensive). |
 | `maximum_price (optional)`  | string    |  The price range, limiting the search results. Valid entries are from 0 (free) to 4 (most expensive). |
 | `open_now (optional)`  | string    |  Limit search results to only those organizations (establishments) that are open at the time of sending the request. |
-| `type (optional)`      | string    |  limit search results to only those places whose type corresponds to at least one of these. Types should be separated by a vertical bar (type1 \| type2 \| etc). See the [List of supported types](https://developers.google.com/places/supported_types?authuser=1) |
+| `type (optional)`      | string    |  Limit search results to only those places whose type corresponds to at least one of these. Types should be separated by a vertical bar (type1 \| type2 \| etc). See the [List of supported types](https://developers.google.com/places/supported_types?authuser=1) |
 
 
 **Request example**
@@ -335,8 +335,9 @@ Search for up to 200 places at once, but with less detail than is typically retu
 | `name (optional)`      | string    |  The space-separated words that are being sought in the names of places. |
 | `language (optional)`  | string    |  The language code, which should be possible to return the results. See the [List of supported languages and their codes](https://developers.google.com/maps/faq?authuser=1#languagesupport). || `minimum_price (optional)`  | string    |  The price range, limiting the search results. Valid entries are from 0 (free) to 4 (most expensive). |
 | `maximum_price (optional)`  | string    |  The price range, limiting the search results. Valid entries are from 0 (free) to 4 (most expensive). |
+| `minimum_price (optional)`  | string    |  The price range, limiting the search results. Valid entries are from 0 (free) to 4 (most expensive). |
 | `open_now (optional)`  | string    |  Limit search results to only those organizations (establishments) that are open at the time of sending the request. |
-| `type (optional)`      | string    |  limit search results to only those places whose type corresponds to at least one of these. Types should be separated by a vertical bar (type1 \| type2 \| etc). See the [List of supported types](https://developers.google.com/places/supported_types?authuser=1) |
+| `type (optional)`      | string    |  Limit search results to only those places whose type corresponds to at least one of these. Types should be separated by a vertical bar (type1 \| type2 \| etc). See the [List of supported types](https://developers.google.com/places/supported_types?authuser=1) |
 
 
 **Request example**
@@ -657,13 +658,13 @@ Add a new place to Google Maps. The new place is available immediately in Nearby
 | `api_key`              | string    |  The api key obtained from Google Developers Console.    |
 | `accuracy`             | number    |  The accuracy of the location of the signal (in meters), which is based on the request. |
 | `address (optional)`   | string    |  The address place to be added. |
-| `language`             | string    |  the language in which the title is transferred to the place. See the [List of supported languages and their codes](https://developers.google.com/maps/faq#languagesupport). |
+| `language`             | string    |  The language in which the title is transferred to the place. See the [List of supported languages and their codes](https://developers.google.com/maps/faq#languagesupport). |
 | `latitude`             | string    |  The latitude of place.   |
 | `longitude`            | string    |  The longitude of place. |
 | `name`                 | string    |  The full name of the place. No more than 255 characters. |
 | `phoneNumber (optional)` | string    |  The phone number of the place. |
-| `types`                | array    |  The category to which this place. It may contain an array, but now for the post, you can specify only one type. See [supported types](https://developers.google.com/places/supported_types) |
-| `website (optional)`   | string    |  The URL-address of the official web site of the place, such as home organization page |
+| `types`                | string    |  The category to which this place. See [supported types](https://developers.google.com/places/supported_types) |
+| `website (optional)`   | string    |  The URL-address of the official web site of the place, such as home organization page. |
 
 **Request example**
 

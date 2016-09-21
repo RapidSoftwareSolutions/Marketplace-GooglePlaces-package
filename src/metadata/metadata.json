@@ -1,0 +1,349 @@
+{
+                    "package": "GooglePlaces",
+                    "tagline": "Google Places API  Web Service Wrapper",
+                    "description": "Google Places API Web Service - a service from which with the help of the HTTP-request you can get information about the places defined in this API: organizations, geographic locations or landmarks.",
+                    "image": "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_116x41dp.png",
+                    "repo": "https://github.com/RapidSoftwareSolutions/Marketplace-GooglePlaces-package",
+                    "accounts": {
+                        "domain": "google.com",
+                        "credentials": [
+                            "api_key"
+                        ]
+                    },
+                    "blocks": [{
+                        "name":"getNearbyPlaces",
+                        "args":[
+                            {
+                                "name": "api_key",
+                                "type": "credentials",
+                                "info": "The api key obtained from Google Developers Console."
+                            },
+                            {
+                                "name": "latitude",
+                                "type": "String",
+                                "info": "The latitude of place."
+                            },
+                            {
+                                "name": "longitude",
+                                "type": "String",
+                                "info": "The longitude of place."
+                            },
+                            {
+                                "name": "radius",
+                                "type": "String",
+                                "info": "Distance in meters over which the results must be found. The maximum allowable range is 50 000 meters. Note that the radius parameter should not be used if the value rank_by = distance."
+                            },
+                            {
+                                "name": "rank_by",
+                                "type": "String",
+                                "info": "Optional: The order of the results. The possible values are: prominence (the default) - the results are sorted by popularity. Priority is given to the ranking of the more famous sites located in a given area. At a certain place affect the rating in the Google index, the overall popularity and other factors. Distance - the results are sorted in order of proximity to the point specified in the parameter location. If you specify distance, you must also specify one or more parameters keyword, name, or type."
+                            },
+                            {
+                                "name": "keyword",
+                                "type": "String",
+                                "info": "Optional: The word on which the search is conducted in all contents are indexed by Google for a given place, including the name, type, address, user reviews and third-party content."
+                            },
+                            {
+                                "name": "language",
+                                "type": "String",
+                                "info": "Optional: The language code, which should be possible to return the results."
+                            },
+                            {
+                                "name": "minimum_price",
+                                "type": "String",
+                                "info": "Optional: The price range, limiting the search results. Valid entries are from 0 (free) to 4 (most expensive). "
+                            },
+                            {
+                                "name": "maximum_price",
+                                "type": "String",
+                                "info": "Optional: The price range, limiting the search results. Valid entries are from 0 (free) to 4 (most expensive). "
+                            },
+                            {
+                                "name": "name",
+                                "type": "String",
+                                "info": "Optional: The space-separated words that are being sought in the names of places."
+                            },
+                            {
+                                "name": "open_now",
+                                "type": "String",
+                                "info": "Optional: Limit search results to only those organizations (establishments) that are open at the time of sending the request."
+                            },
+                            {
+                                "name": "type",
+                                "type": "String",
+                                "info": "Optional: limit search results to only those places whose type corresponds to at least one of these. Types should be separated by a vertical bar (type1 | type2 | etc)."
+                            }
+                        ],
+                        "callbacks":[
+                            {
+                                "name":"error",
+                                "info": "Error"
+                            },
+                            {
+                                "name":"success",
+                                "info": "Success"
+                            }
+                        ]
+                    },
+                    {
+                        "name":"searchPlacesByText",
+                        "args":[
+                            {
+                                "name": "api_key",
+                                "type": "credentials",
+                                "info": "The api key obtained from Google Developers Console."
+                            },
+                            {
+                                "name": "query",
+                                "type": "String",
+                                "info": "The phrase that is searched for, such as 'restaurant'."
+                            },
+                            {
+                                "name": "latitude",
+                                "type": "String",
+                                "info": "Optional: The latitude of place."
+                            },
+                            {
+                                "name": "longitude",
+                                "type": "String",
+                                "info": "Optional: The longitude of place."
+                            },
+                            {
+                                "name": "radius",
+                                "type": "String",
+                                "info": "Optional: Distance in meters over which the results must be found. The maximum allowable range is 50 000 meters."
+                            },
+                            {
+                                "name": "language",
+                                "type": "String",
+                                "info": "Optional: The language code, which should be possible to return the results."
+                            },
+                            {
+                                "name": "minimum_price",
+                                "type": "String",
+                                "info": "Optional: The price range, limiting the search results. Valid entries are from 0 (free) to 4 (most expensive). "
+                            },
+                            {
+                                "name": "maximum_price",
+                                "type": "String",
+                                "info": "Optional: The price range, limiting the search results. Valid entries are from 0 (free) to 4 (most expensive). "
+                            },
+                            {
+                                "name": "open_now",
+                                "type": "String",
+                                "info": "Optional: Limit search results to only those organizations (establishments) that are open at the time of sending the request."
+                            },
+                            {
+                                "name": "type",
+                                "type": "String",
+                                "info": "Optional: Limit search results to only those places whose type corresponds to at least one of these. Types should be separated by a vertical bar (type1 | type2 | etc)."
+                            }
+                        ],
+                        "callbacks":[
+                            {
+                                "name":"error",
+                                "info": "Error"
+                            },
+                            {
+                                "name":"success",
+                                "info": "Success"
+                            }
+                        ]
+                    },
+                    {
+                        "name":"getNearbyPlacesRadar",
+                        "args":[
+                            {
+                                "name": "api_key",
+                                "type": "credentials",
+                                "info": "The api key obtained from Google Developers Console."
+                            },
+                            {
+                                "name": "latitude",
+                                "type": "String",
+                                "info": "The latitude of place."
+                            },
+                            {
+                                "name": "longitude",
+                                "type": "String",
+                                "info": "The longitude of place."
+                            },
+                            {
+                                "name": "radius",
+                                "type": "String",
+                                "info": "Distance in meters over which the results must be found. The maximum allowable range is 50 000 meters."
+                            },
+                            {
+                                "name": "keyword",
+                                "type": "String",
+                                "info": "Optional: TThe word on which the search is conducted in all contents are indexed by Google for a given place, including the name, type, address, user reviews and third-party content."
+                            },
+                            {
+                                "name": "name",
+                                "type": "String",
+                                "info": "Optional: The space-separated words that are being sought in the names of places."
+                            },
+                            {
+                                "name": "language",
+                                "type": "String",
+                                "info": "Optional: The language code, which should be possible to return the results."
+                            },
+                            {
+                                "name": "minimum_price",
+                                "type": "String",
+                                "info": "Optional: The price range, limiting the search results. Valid entries are from 0 (free) to 4 (most expensive). "
+                            },
+                            {
+                                "name": "maximum_price",
+                                "type": "String",
+                                "info": "Optional: The price range, limiting the search results. Valid entries are from 0 (free) to 4 (most expensive). "
+                            },
+                            {
+                                "name": "open_now",
+                                "type": "String",
+                                "info": "Optional: Limit search results to only those organizations (establishments) that are open at the time of sending the request."
+                            },
+                            {
+                                "name": "type",
+                                "type": "String",
+                                "info": "Optional: Limit search results to only those places whose type corresponds to at least one of these. Types should be separated by a vertical bar (type1 | type2 | etc)."
+                            }
+                        ],
+                        "callbacks":[
+                            {
+                                "name":"error",
+                                "info": "Error"
+                            },
+                            {
+                                "name":"success",
+                                "info": "Success"
+                            }
+                        ]
+                    },
+                    {
+                        "name":"getPlaceDetails",
+                        "args":[
+                            {
+                                "name": "api_key",
+                                "type": "credentials",
+                                "info": "The api key obtained from Google Developers Console."
+                            },
+                            {
+                                "name": "place_id",
+                                "type": "String",
+                                "info": "The unique text identifier, returned by the getNearbyPlaces method."
+                            }
+                        ],
+                        "callbacks":[
+                            {
+                                "name":"error",
+                                "info": "Error"
+                            },
+                            {
+                                "name":"success",
+                                "info": "Success"
+                            }
+                        ]
+                    },
+                    {
+                        "name":"getImageURL",
+                        "args":[
+                            {
+                                "name": "api_key",
+                                "type": "credentials",
+                                "info": "The api key obtained from Google Developers Console."
+                            },
+                            {
+                                "name": "image_id",
+                                "type": "String",
+                                "info": "The unique text identifier 'photo_reference', returned by the getNearbyPlaces method."
+                            },
+                            {
+                                "name": "max_width",
+                                "type": "String",
+                                "info": "Indicate the values in pixels for the maximum width of the returned image."
+                            },
+                            {
+                                "name": "max_height",
+                                "type": "String",
+                                "info": "Indicate the values in pixels for the maximum width of the returned image."
+                            }
+                        ],
+                        "callbacks":[
+                            {
+                                "name":"error",
+                                "info": "Error"
+                            },
+                            {
+                                "name":"success",
+                                "info": "Success"
+                            }
+                        ]
+                    },
+                    {
+                        "name":"addPlace",
+                        "args":[
+                            {
+                                "name": "api_key",
+                                "type": "credentials",
+                                "info": "The api key obtained from Google Developers Console."
+                            },
+                            {
+                                "name": "accuracy",
+                                "type": "Number",
+                                "info": "The accuracy of the location of the signal (in meters), which is based on the request."
+                            },
+                            {
+                                "name": "address",
+                                "type": "String",
+                                "info": "Optional: The address place to be added."
+                            },
+                            {
+                                "name": "language",
+                                "type": "String",
+                                "info": "The language in which the title is transferred to the place."
+                            },
+                            {
+                                "name": "latitude",
+                                "type": "String",
+                                "info": "The latitude of place."
+                            },
+                            {
+                                "name": "longitude",
+                                "type": "String",
+                                "info": "The longitude of place."
+                            },
+                            {
+                                "name": "name",
+                                "type": "String",
+                                "info": "The full name of the place. No more than 255 characters."
+                            },
+                            {
+                                "name": "phoneNumber",
+                                "type": "String",
+                                "info": "Optional: The phone number of the place."
+                            },
+                            {
+                                "name": "types",
+                                "type": "String",
+                                "info": "The category to which this place."
+                            },
+                            {
+                                "name": "website",
+                                "type": "String",
+                                "info": "The URL-address of the official web site of the place, such as home organization page."
+                            }
+                        ],
+                        "callbacks":[
+                            {
+                                "name":"error",
+                                "info": "Error"
+                            },
+                            {
+                                "name":"success",
+                                "info": "Success"
+                            }
+                        ]
+                    }
+                    ]
+                }

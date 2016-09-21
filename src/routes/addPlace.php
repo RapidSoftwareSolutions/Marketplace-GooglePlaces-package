@@ -66,10 +66,14 @@ $app->post('/addPlace', function ($request, $response, $args) {
     if(!empty($post_data['phoneNumber'])) {
         $params['phone_number'] = $post_data['phoneNumber'];
     }
-    $params['types'][] = $post_data['types'];
+    foreach(explode(',', $post_data['types']) as $item) {
+        $params['types'][] = $item;
+    }
+    
     if(!empty($post_data['website'])) {
         $params['website'] = $post_data['website'];
     }
+    //echo json_encode($params); die;
     
     $query_str = $settings['api_url'] . 'add/json?key='.$query['key'];
     
