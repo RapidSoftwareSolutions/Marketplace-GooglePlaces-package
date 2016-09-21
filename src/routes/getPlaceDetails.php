@@ -1,31 +1,33 @@
 <?php
 
-$app->post('/getPlaceDetails', function ($request, $response, $args) {
+$app->post('/api/GooglePlaces/getPlaceDetails', function ($request, $response, $args) {
     $settings =  $this->settings;
     
-    $data = $request->getParsedBody();
-    $post_data = [];
-    $post_data['api_key'] = filter_var($data['api_key'], FILTER_SANITIZE_STRING);
-    $post_data['place_id'] = filter_var($data['place_id'], FILTER_SANITIZE_STRING);
+    $data = $request->getBody();
+    $post_data = json_decode($data, true);
+    if(!isset($post_data['args'])) {
+        $data = $request->getParsedBody();
+        $post_data = $data;
+    }
     
     $error = [];
-    if(empty($post_data['api_key'])) {
+    if(empty($post_data['args']['api_key'])) {
         $error[] = 'api_key cannot be empty';
     }
-    if(empty($post_data['place_id'])) {
+    if(empty($post_data['args']['place_id'])) {
         $error[] = 'place_id cannot be empty';
     }
     
     if(!empty($error)) {
         $result['callback'] = 'error';
-        $result['contextWrites']['to'] = $error;
+        $result['contextWrites']['to'] = implode(',', $error);
         return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($result);
     }
     
     
     
-    $query['key'] = $post_data['api_key'];
-    $query['placeid'] = $post_data['place_id'];
+    $query['key'] = $post_data['args']['api_key'];
+    $query['placeid'] = $post_data['args']['place_id'];
     
     
     $query_str = $settings['api_url'] . 'details/json';
@@ -39,13 +41,13 @@ $app->post('/getPlaceDetails', function ($request, $response, $args) {
                 'query' => $query,
                 'verify' => false
             ]);
-        $responseBody = $resp->getBody();
+        $responseBody = $resp->getBody()->getContents();
         if(!empty(json_decode($responseBody)->result) && json_decode($responseBody)->status == 'OK') {
             $result['callback'] = 'success';
-            $result['contextWrites']['to'] = json_decode($responseBody);
+            $result['contextWrites']['to'] = $responseBody;
         } else {
             $result['callback'] = 'error';
-            $result['contextWrites']['to'] = json_decode($responseBody);
+            $result['contextWrites']['to'] = $responseBody;
         }
 
     } catch (\GuzzleHttp\Exception\ClientException $exception) {

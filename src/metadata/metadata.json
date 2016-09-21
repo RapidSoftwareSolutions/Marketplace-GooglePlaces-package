@@ -15,7 +15,7 @@
         "args":[
             {
                 "name": "api_key",
-                "type": "credentials",
+                "type": "String",
                 "info": "The api key obtained from Google Developers Console."
             },
             {
@@ -81,7 +81,7 @@
             },
             {
                 "name":"success",
-                "info": "Success"
+                "info": "Success => channels: Array <string>"
             }
         ]
     },
@@ -90,7 +90,7 @@
         "args":[
             {
                 "name": "api_key",
-                "type": "credentials",
+                "type": "String",
                 "info": "The api key obtained from Google Developers Console."
             },
             {
@@ -146,7 +146,7 @@
             },
             {
                 "name":"success",
-                "info": "Success"
+                "info": "Success => channels: Array <string>"
             }
         ]
     },
@@ -155,7 +155,7 @@
         "args":[
             {
                 "name": "api_key",
-                "type": "credentials",
+                "type": "String",
                 "info": "The api key obtained from Google Developers Console."
             },
             {
@@ -216,7 +216,7 @@
             },
             {
                 "name":"success",
-                "info": "Success"
+                "info": "Success => channels: Array <string>"
             }
         ]
     },
@@ -225,13 +225,13 @@
         "args":[
             {
                 "name": "api_key",
-                "type": "credentials",
+                "type": "String",
                 "info": "The api key obtained from Google Developers Console."
             },
             {
                 "name": "place_id",
                 "type": "String",
-                "info": "he unique text identifier, returned by the getNearbyPlaces method."
+                "info": "The unique text identifier, returned by the getNearbyPlaces method."
             }
         ],
         "callbacks":[
@@ -241,7 +241,107 @@
             },
             {
                 "name":"success",
-                "info": "Success"
+                "info": "Success => channels: Array <string>"
+            }
+        ]
+    },
+    {
+        "name":"getImageURL",
+        "args":[
+            {
+                "name": "api_key",
+                "type": "String",
+                "info": "The api key obtained from Google Developers Console."
+            },
+            {
+                "name": "image_id",
+                "type": "String",
+                "info": "The unique text identifier 'photo_reference', returned by the getNearbyPlaces method."
+            },
+            {
+                "name": "max_width",
+                "type": "String",
+                "info": "Indicate the values in pixels for the maximum width of the returned image."
+            },
+            {
+                "name": "max_height",
+                "type": "String",
+                "info": "Indicate the values in pixels for the maximum width of the returned image."
+            }
+        ],
+        "callbacks":[
+            {
+                "name":"error",
+                "info": "Error"
+            },
+            {
+                "name":"success",
+                "info": "Success => channels: Array <string>"
+            }
+        ]
+    },
+    {
+        "name":"addPlace",
+        "args":[
+            {
+                "name": "api_key",
+                "type": "String",
+                "info": "The api key obtained from Google Developers Console."
+            },
+            {
+                "name": "accuracy",
+                "type": "Number",
+                "info": "The accuracy of the location of the signal (in meters), which is based on the request."
+            },
+            {
+                "name": "address",
+                "type": "String",
+                "info": "Indicate the values in pixels for the maximum width of the returned image."
+            },
+            {
+                "name": "language",
+                "type": "String",
+                "info": "The language in which the title is transferred to the place."
+            },
+            {
+                "name": "latitude",
+                "type": "String",
+                "info": "The latitude of place."
+            },
+            {
+                "name": "longitude",
+                "type": "String",
+                "info": "The longitude of place."
+            },
+            {
+                "name": "name",
+                "type": "String",
+                "info": "The full name of the place. No more than 255 characters."
+            },
+            {
+                "name": "phoneNumber",
+                "type": "String",
+                "info": "Optional: The phone number of the place."
+            },
+            {
+                "name": "types",
+                "type": "String",
+                "info": "The category to which this place."
+            },
+            {
+                "name": "website",
+                "type": "String",
+                "info": "Optional: The URL-address of the official web site of the place, such as home organization page."
+            }
+        ],
+        "callbacks":[
+            {
+                "name":"error",
+                "info": "Error"
+            },
+            {
+                "name":"success",
+                "info": "Success => channels: Array <string>"
             }
         ]
     }
