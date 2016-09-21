@@ -333,7 +333,7 @@ Search for up to 200 places at once, but with less detail than is typically retu
 | `radius`               | string    |  Distance in meters over which the results must be found. The maximum allowable range is 50 000 meters. Note that the radius parameter should not be used if the value rank_by = distance |
 | `keyword (optional)`   | string    |  The word on which the search is conducted in all contents are indexed by Google for a given place, including the name, type, address, user reviews and third-party content. |
 | `name (optional)`      | string    |  The space-separated words that are being sought in the names of places. |
-| `minimum_price (optional)`  | string    |  The price range, limiting the search results. Valid entries are from 0 (free) to 4 (most expensive). |
+| `language (optional)`  | string    |  The language code, which should be possible to return the results. See the [List of supported languages and their codes](https://developers.google.com/maps/faq?authuser=1#languagesupport). || `minimum_price (optional)`  | string    |  The price range, limiting the search results. Valid entries are from 0 (free) to 4 (most expensive). |
 | `maximum_price (optional)`  | string    |  The price range, limiting the search results. Valid entries are from 0 (free) to 4 (most expensive). |
 | `open_now (optional)`  | string    |  Limit search results to only those organizations (establishments) that are open at the time of sending the request. |
 | `type (optional)`      | string    |  limit search results to only those places whose type corresponds to at least one of these. Types should be separated by a vertical bar (type1 | type2 | etc). See the [List of supported types](https://developers.google.com/places/supported_types?authuser=1) |
@@ -626,6 +626,8 @@ Get the image URL for an image of a place.
 | -------                | ----      | ---           |
 | `api_key`              | string    |  The api key obtained from Google Developers Console.    |
 | `image_id`             | string    |  The unique text identifier "photo_reference", returned by the **getNearbyPlaces** method.   |
+| `max_width`            | string    |  Indicate the values in pixels for the maximum width of the returned image.   |
+| `max_height`           | string    |  Indicate the values in pixels for the maximum height of the returned image.  |
 
 **Request example**
 
@@ -653,7 +655,7 @@ Add a new place to Google Maps. The new place is available immediately in Nearby
 | Field                  | Type      | Description   |
 | -------                | ----      | ---           |
 | `api_key`              | string    |  The api key obtained from Google Developers Console.    |
-| `accuracy`             | string    |  The accuracy of the location of the signal (in meters), which is based on the request. |
+| `accuracy`             | number    |  The accuracy of the location of the signal (in meters), which is based on the request. |
 | `address (optional)`   | string    |  The address place to be added. |
 | `language`             | string    |  the language in which the title is transferred to the place. See the [List of supported languages and their codes](https://developers.google.com/maps/faq#languagesupport). |
 | `latitude`             | string    |  The latitude of place.   |
@@ -667,7 +669,13 @@ Add a new place to Google Maps. The new place is available immediately in Nearby
 
     {
         "api_key": "XXXXXXX",
-        "image_id": "CoQBdwAAAMI0mesGjb8QOUwu6JppTH9-JNioNvK-ZDazyqyL4b6EOz1V5mQn08KMl0apo9BNEpFaKnVZ-_h21GMMxAi3x7y6V0o4s1oqNOhJegzhw40wsJ0M_TWtFGPiTxHN2_P6yhJVBTyTnd7XdmR3XQWV7JcT_YJ-cNCuMIGs98PKzTOvEhDspZ1-Lm-PWpqaU9qFrWKwGhT6EQXggGKGKt29gu1ArKY8zClxDA"
+        "accuracy": 50,
+        "language": "en-Au",
+        "latitude": "-33.8669710",
+        "longitude": "151.1958750",
+        "name": "Google Shoes!",
+        "types": "shoe_store",
+        "address": "48 Pirrama Road, Pyrmont, NSW 2009, Australia"
     }
 
 **Response example**
@@ -675,6 +683,12 @@ Add a new place to Google Maps. The new place is available immediately in Nearby
     {
       "callback": "success",
       "contextWrites": {
-        "to": "https://lh5.googleusercontent.com/-7RxWxJhQ36Y/V1KqHONgEUI/AAAAAAAABeg/gj-Zx1HXWHsEaJgocHJp9TFz2ioOYZsGQCLIB/s1600-w120/"
+        "to": {
+          "id": "f33fcbf47b2312ca05c3bdf6abb9479f3e431302",
+          "place_id": "qgYvCi0wMDAwMDA1ZDhiZTA0YzliOjZiMTJhZTM3YjQ3OjViMDg4OWI3NTQ2YWJjM2U",
+          "reference": "CkQxAAAANf0u8JgdMuC8Bp25M3mt8xDkPi_z1pUaySXIedv-abu2IZx4XEf1idzcuHal_h-6NrHP6_eYJysqjXvPTd1YGxIQxyjLmfkBRUph7_qjr7HSIhoUyaFR3D1dLskBmRJ_mGhgLSV8z6k",
+          "scope": "APP",
+          "status": "OK"
+        }
       }
     }
