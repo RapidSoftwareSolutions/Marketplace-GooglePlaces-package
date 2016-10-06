@@ -11,8 +11,8 @@ $app->post('/api/GooglePlaces/searchPlacesByText', function ($request, $response
     }
         
     $error = [];
-    if(empty($post_data['args']['api_key'])) {
-        $error[] = 'api_key cannot be empty';
+    if(empty($post_data['args']['apiKey'])) {
+        $error[] = 'apiKey cannot be empty';
     }
     if(empty($post_data['args']['query'])) {
         $error[] = 'query cannot be empty';
@@ -26,7 +26,7 @@ $app->post('/api/GooglePlaces/searchPlacesByText', function ($request, $response
     
     
     
-    $query['key'] = $post_data['args']['api_key'];
+    $query['key'] = $post_data['args']['apiKey'];
     $query['query'] = $post_data['args']['query'];
     if(!empty($post_data['args']['latitude']) && !empty($post_data['args']['longitude'])) {
         $query['location'] = $post_data['args']['latitude'] . ',' . $post_data['args']['longitude'];

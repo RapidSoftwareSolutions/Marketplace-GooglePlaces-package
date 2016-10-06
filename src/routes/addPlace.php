@@ -11,8 +11,8 @@ $app->post('/api/GooglePlaces/addPlace', function ($request, $response, $args) {
     }
     
     $error = [];
-    if(empty($post_data['args']['api_key'])) {
-        $error[] = 'api_key cannot be empty';
+    if(empty($post_data['args']['apiKey'])) {
+        $error[] = 'apiKey cannot be empty';
     }
     if(empty($post_data['args']['accuracy'])) {
         $error[] = 'accuracy cannot be empty';
@@ -41,7 +41,7 @@ $app->post('/api/GooglePlaces/addPlace', function ($request, $response, $args) {
     
     
     
-    $query['key'] = $post_data['args']['api_key'];
+    $query['key'] = $post_data['args']['apiKey'];
     
     $params['location']['lat'] = (float) $post_data['args']['latitude'];
     $params['location']['lng'] = (float) $post_data['args']['longitude'];

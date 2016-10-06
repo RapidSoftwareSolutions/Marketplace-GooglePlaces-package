@@ -11,8 +11,8 @@ $app->post('/api/GooglePlaces/getNearbyPlacesRadar', function ($request, $respon
     }
     
     $error = [];
-    if(empty($post_data['args']['api_key'])) {
-        $error[] = 'api_key cannot be empty';
+    if(empty($post_data['args']['apiKey'])) {
+        $error[] = 'apiKey cannot be empty';
     }
     if(empty($post_data['args']['latitude'])) {
         $error[] = 'latitude cannot be empty';
@@ -35,7 +35,7 @@ $app->post('/api/GooglePlaces/getNearbyPlacesRadar', function ($request, $respon
     
     
     
-    $query['key'] = $post_data['args']['api_key'];
+    $query['key'] = $post_data['args']['apiKey'];
     $query['location'] = $post_data['args']['latitude'] . ',' . $post_data['args']['longitude'];
     $query['radius'] = $post_data['args']['radius'];
     if(!empty($post_data['args']['keyword'])) {

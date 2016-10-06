@@ -6,7 +6,7 @@ This package allows you get information about the places defined in this API: or
 
 ----------
 
-How to get `api_key`
+How to get `apiKey`
 ---------------
 
  1. Go to [Google Developers Console](https://console.developers.google.com/?authuser=1);
@@ -24,7 +24,7 @@ Search for places within a specified area. You can refine your search request by
 
 | Field                  | Type      | Description   |
 | -------                | ----      | ---           |
-| `api_key`              | string    |  The api key obtained from Google Developers Console.    |
+| `apiKey`              | credentials    |  The api key obtained from Google Developers Console.    |
 | `latitude`             | string    |  The latitude of place.   |
 | `longitude`            | string    |  The longitude of place. |
 | `radius`               | string    |  Distance in meters over which the results must be found. The maximum allowable range is 50 000 meters. Note that the radius parameter should not be used if the value rank_by = distance |
@@ -41,7 +41,7 @@ Search for places within a specified area. You can refine your search request by
 **Request example**
 
     {
-        "api_key": "XXXXXXX",
+        "apiKey": "XXXXXXX",
         "latitude": "-33.8670522",
         "longitude": "151.19573622",
         "radius": "1",
@@ -148,7 +148,7 @@ The service responds with a list of places matching the text string and any loca
 
 | Field                  | Type      | Description   |
 | -------                | ----      | ---           |
-| `api_key`              | string    |  The api key obtained from Google Developers Console.    |
+| `apiKey`              | credentials    |  The api key obtained from Google Developers Console.    |
 | `query`                | string    |  The phrase that is searched for, such as "restaurant".  |
 | `latitude (optional)`  | string    |  The latitude of place.   |
 | `longitude (optional)` | string    |  The longitude of place. |
@@ -163,7 +163,7 @@ The service responds with a list of places matching the text string and any loca
 **Request example**
 
     {
-        "api_key": "XXXXXXX",
+        "apiKey": "XXXXXXX",
         "query": "beer",
         "latitude": "-33.8670522",
         "longitude": "151.19573622",
@@ -327,7 +327,7 @@ Search for up to 200 places at once, but with less detail than is typically retu
 
 | Field                  | Type      | Description   |
 | -------                | ----      | ---           |
-| `api_key`              | string    |  The api key obtained from Google Developers Console.    |
+| `apiKey`              | credentials    |  The api key obtained from Google Developers Console.    |
 | `latitude`             | string    |  The latitude of place.   |
 | `longitude`            | string    |  The longitude of place. |
 | `radius`               | string    |  Distance in meters over which the results must be found. The maximum allowable range is 50 000 meters. Note that the radius parameter should not be used if the value rank_by = distance |
@@ -343,7 +343,7 @@ Search for up to 200 places at once, but with less detail than is typically retu
 **Request example**
 
     {
-        "api_key": "XXXXXXX",
+        "apiKey": "XXXXXXX",
         "latitude": "-33.8670522",
         "longitude": "151.19573622",
         "radius": "100",
@@ -438,13 +438,13 @@ Request more details about a particular establishment or point of interest.
 
 | Field                  | Type      | Description   |
 | -------                | ----      | ---           |
-| `api_key`              | string    |  The api key obtained from Google Developers Console.    |
+| `apiKey`              | credentials    |  The api key obtained from Google Developers Console.    |
 | `place_id`             | string    |  The unique text identifier, returned by the **getNearbyPlaces** method.   |
 
 **Request example**
 
     {
-        "api_key": "XXXXXXX",
+        "apiKey": "XXXXXXX",
         "place_id": "ChIJAWLZAzSuEmsRkMcyFmh9AQU"
     }
 
@@ -625,7 +625,7 @@ Get the image URL for an image of a place.
 
 | Field                  | Type      | Description   |
 | -------                | ----      | ---           |
-| `api_key`              | string    |  The api key obtained from Google Developers Console.    |
+| `apiKey`              | credentials    |  The api key obtained from Google Developers Console.    |
 | `image_id`             | string    |  The unique text identifier "photo_reference", returned by the **getNearbyPlaces** method.   |
 | `max_width`            | string    |  Indicate the values in pixels for the maximum width of the returned image.   |
 | `max_height`           | string    |  Indicate the values in pixels for the maximum height of the returned image.  |
@@ -633,7 +633,7 @@ Get the image URL for an image of a place.
 **Request example**
 
     {
-        "api_key": "XXXXXXX",
+        "apiKey": "XXXXXXX",
         "image_id": "CoQBdwAAAMI0mesGjb8QOUwu6JppTH9-JNioNvK-ZDazyqyL4b6EOz1V5mQn08KMl0apo9BNEpFaKnVZ-_h21GMMxAi3x7y6V0o4s1oqNOhJegzhw40wsJ0M_TWtFGPiTxHN2_P6yhJVBTyTnd7XdmR3XQWV7JcT_YJ-cNCuMIGs98PKzTOvEhDspZ1-Lm-PWpqaU9qFrWKwGhT6EQXggGKGKt29gu1ArKY8zClxDA"
     }
 
@@ -655,7 +655,7 @@ Add a new place to Google Maps. The new place is available immediately in Nearby
 
 | Field                  | Type      | Description   |
 | -------                | ----      | ---           |
-| `api_key`              | string    |  The api key obtained from Google Developers Console.    |
+| `apiKey`              | credentials    |  The api key obtained from Google Developers Console.    |
 | `accuracy`             | number    |  The accuracy of the location of the signal (in meters), which is based on the request. |
 | `address (optional)`   | string    |  The address place to be added. |
 | `language`             | string    |  The language in which the title is transferred to the place. See the [List of supported languages and their codes](https://developers.google.com/maps/faq#languagesupport). |
@@ -669,7 +669,7 @@ Add a new place to Google Maps. The new place is available immediately in Nearby
 **Request example**
 
     {
-        "api_key": "XXXXXXX",
+        "apiKey": "XXXXXXX",
         "accuracy": 50,
         "language": "en-Au",
         "latitude": "-33.8669710",

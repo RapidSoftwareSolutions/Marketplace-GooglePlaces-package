@@ -7,15 +7,15 @@
     "accounts": {
         "domain": "google.com",
         "credentials": [
-            "api_key"
+            "apiKey"
         ]
     },
     "blocks": [{
         "name":"getNearbyPlaces",
         "args":[
             {
-                "name": "api_key",
-                "type": "String",
+                "name": "apiKey",
+                "type": "credentials",
                 "info": "The api key obtained from Google Developers Console."
             },
             {
@@ -89,8 +89,8 @@
         "name":"searchPlacesByText",
         "args":[
             {
-                "name": "api_key",
-                "type": "String",
+                "name": "apiKey",
+                "type": "credentials",
                 "info": "The api key obtained from Google Developers Console."
             },
             {
@@ -154,8 +154,8 @@
         "name":"getNearbyPlacesRadar",
         "args":[
             {
-                "name": "api_key",
-                "type": "String",
+                "name": "apiKey",
+                "type": "credentials",
                 "info": "The api key obtained from Google Developers Console."
             },
             {
@@ -224,8 +224,8 @@
         "name":"getPlaceDetails",
         "args":[
             {
-                "name": "api_key",
-                "type": "String",
+                "name": "apiKey",
+                "type": "credentials",
                 "info": "The api key obtained from Google Developers Console."
             },
             {
@@ -249,8 +249,8 @@
         "name":"getImageURL",
         "args":[
             {
-                "name": "api_key",
-                "type": "String",
+                "name": "apiKey",
+                "type": "credentials",
                 "info": "The api key obtained from Google Developers Console."
             },
             {
@@ -284,8 +284,8 @@
         "name":"addPlace",
         "args":[
             {
-                "name": "api_key",
-                "type": "String",
+                "name": "apiKey",
+                "type": "credentials",
                 "info": "The api key obtained from Google Developers Console."
             },
             {

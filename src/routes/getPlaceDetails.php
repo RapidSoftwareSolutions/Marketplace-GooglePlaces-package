@@ -11,8 +11,8 @@ $app->post('/api/GooglePlaces/getPlaceDetails', function ($request, $response, $
     }
     
     $error = [];
-    if(empty($post_data['args']['api_key'])) {
-        $error[] = 'api_key cannot be empty';
+    if(empty($post_data['args']['apiKey'])) {
+        $error[] = 'apiKey cannot be empty';
     }
     if(empty($post_data['args']['place_id'])) {
         $error[] = 'place_id cannot be empty';
@@ -26,7 +26,7 @@ $app->post('/api/GooglePlaces/getPlaceDetails', function ($request, $response, $
     
     
     
-    $query['key'] = $post_data['args']['api_key'];
+    $query['key'] = $post_data['args']['apiKey'];
     $query['placeid'] = $post_data['args']['place_id'];
     
     

@@ -12,8 +12,8 @@ $app->post('/api/GooglePlaces/getImageURL', function ($request, $response, $args
     }
     
     $error = [];
-    if(empty($post_data['args']['api_key'])) {
-        $error[] = 'api_key cannot be empty';
+    if(empty($post_data['args']['apiKey'])) {
+        $error[] = 'apiKey cannot be empty';
     }
     if(empty($post_data['args']['image_id'])) {
         $error[] = 'image_id cannot be empty';
@@ -30,7 +30,7 @@ $app->post('/api/GooglePlaces/getImageURL', function ($request, $response, $args
     
     
     
-    $query['key'] = $post_data['args']['api_key'];
+    $query['key'] = $post_data['args']['apiKey'];
     $query['photoreference'] = $post_data['args']['image_id'];
     if(!empty($post_data['args']['max_width'])) {
         $query['maxwidth'] = $post_data['args']['max_width'];
