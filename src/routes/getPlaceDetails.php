@@ -44,10 +44,10 @@ $app->post('/api/GooglePlaces/getPlaceDetails', function ($request, $response, $
         $responseBody = $resp->getBody()->getContents();
         if(!empty(json_decode($responseBody)->result) && json_decode($responseBody)->status == 'OK') {
             $result['callback'] = 'success';
-            $result['contextWrites']['to'] = $responseBody;
+            $result['contextWrites']['to'] = is_array($responseBody) ? $responseBody : json_decode($responseBody);
         } else {
             $result['callback'] = 'error';
-            $result['contextWrites']['to'] = $responseBody;
+            $result['contextWrites']['to'] = is_array($responseBody) ? $responseBody : json_decode($responseBody);
         }
 
     } catch (\GuzzleHttp\Exception\ClientException $exception) {

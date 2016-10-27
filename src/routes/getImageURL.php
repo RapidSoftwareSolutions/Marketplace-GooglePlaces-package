@@ -59,7 +59,7 @@ $app->post('/api/GooglePlaces/getImageURL', function ($request, $response, $args
             $result['contextWrites']['to'] = $matches[1][0];
         } else {
             $result['callback'] = 'error';
-            $result['contextWrites']['to'] =$responseBody;
+            $result['contextWrites']['to'] = is_array($responseBody) ? $responseBody : json_decode($responseBody);
         }
 
     } catch (\GuzzleHttp\Exception\ClientException $exception) {
