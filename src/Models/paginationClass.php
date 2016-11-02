@@ -8,6 +8,7 @@ Class NextPage {
         
         $client = new \GuzzleHttp\Client();
         if($pageToken) { 
+            sleep(1);
             $query_new['pagetoken'] = $pageToken;
             $query_new['key'] = $query['key'];
             $resp = $client->get( $url, 
@@ -21,7 +22,6 @@ Class NextPage {
             $this->all_data = array_merge($this->all_data, $rawBody->results);
             
             if(isset($rawBody->next_page_token) && !empty($rawBody->next_page_token)) {
-                sleep(1);
                 $this->page($url, $rawBody->next_page_token, $query);
             }
         }
