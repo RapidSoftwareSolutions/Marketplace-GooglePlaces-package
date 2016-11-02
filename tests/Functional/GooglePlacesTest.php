@@ -2,6 +2,8 @@
 
 namespace Tests\Functional;
 
+require_once __DIR__ . '/../../src/Models/paginationClass.php';
+
 class GooglePlacesTest extends BaseTestCase
 {
     protected $apiKey = 'AIzaSyByjKV-D8YjrjAc_8aC_6h0R7AKvSyyJis';
@@ -24,11 +26,9 @@ class GooglePlacesTest extends BaseTestCase
     public function testSearchPlacesByText() {
         
         $post_data['args']['apiKey'] = $this->apiKey;
-        $post_data['args']['query'] = 'pizza';
-        $post_data['args']['latitude'] = '-33.8670522';
-        $post_data['args']['longitude'] = '151.19573622';
-        $post_data['args']['radius'] = 100;
-        
+        $post_data['args']['query'] = 'museum';
+        $post_data['args']['radius'] = 10;
+        sleep(3);
         $response = $this->runApp('POST', '/api/GooglePlaces/searchPlacesByText', $post_data);
 
         $this->assertEquals(200, $response->getStatusCode());

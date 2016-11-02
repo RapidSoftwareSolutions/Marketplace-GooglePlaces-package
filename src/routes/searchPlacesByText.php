@@ -63,9 +63,22 @@ $app->post('/api/GooglePlaces/searchPlacesByText', function ($request, $response
                 'verify' => false
             ]);
         $responseBody = $resp->getBody()->getContents();
+        $rawBody = json_decode($resp->getBody());
+      
+        $all_data[] = $rawBody;
+        
+        if(isset($rawBody->next_page_token)) {
+            sleep(1);
+            $pagin = $this->pager;
+            $ret = $pagin->page($query_str, $rawBody->next_page_token, $query);
+         
+            $merge = array_merge($all_data[0]->results, $ret);
+        
+            $all_data[0]->results = $merge;
+        } 
         if(!empty(json_decode($responseBody)->results) && json_decode($responseBody)->status == 'OK') {
             $result['callback'] = 'success';
-            $result['contextWrites']['to'] = is_array($responseBody) ? $responseBody : json_decode($responseBody);
+            $result['contextWrites']['to'] = is_array($all_data) ? $all_data : json_decode($all_data);
         } else {
             $result['callback'] = 'error';
             $result['contextWrites']['to'] = is_array($responseBody) ? $responseBody : json_decode($responseBody);

@@ -59,7 +59,6 @@ $app->post('/api/GooglePlaces/addPlace', function ($request, $response, $args) {
     if(!empty($post_data['args']['website'])) {
         $params['website'] = $post_data['args']['website'];
     }
-    //echo json_encode($params); die;
     
     $query_str = $settings['api_url'] . 'add/json?key='.$query['key'];
     
