@@ -1,6 +1,6 @@
 {
     "package": "GooglePlaces",
-    "tagline": "Google Places API  Web Service Wrapper",
+    "tagline": "Google Places API",
     "description": "Google Places API Web Service - a service from which with the help of the HTTP-request you can get information about the places defined in this API: organizations, geographic locations or landmarks.",
     "image": "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_116x41dp.png",
     "repo": "https://github.com/RapidSoftwareSolutions/Marketplace-GooglePlaces-package",
