@@ -11,6 +11,7 @@
     },
     "blocks": [{
             "name": "getNearbyPlaces",
+            "description": "Search for places within a specified area. You can refine your search request by supplying keywords or specifying the type of place you are searching for.",
             "args": [{
                     "name": "apiKey",
                     "type": "credentials",
@@ -81,6 +82,7 @@
                 }]
         }, {
             "name": "searchPlacesByText",
+            "description": "The service responds with a list of places matching the text string and any location bias that has been set.",
             "args": [{
                     "name": "apiKey",
                     "type": "credentials",
@@ -141,6 +143,7 @@
                 }]
         }, {
             "name": "getNearbyPlacesRadar",
+            "description": "Search for up to 200 places at once, but with less detail than is typically returned from a Text Search or Nearby Search request.",
             "args": [{
                     "name": "apiKey",
                     "type": "credentials",
@@ -206,6 +209,7 @@
                 }]
         }, {
             "name": "getPlaceDetails",
+            "description": "Request more details about a particular establishment or point of interest.",
             "args": [{
                     "name": "apiKey",
                     "type": "credentials",
@@ -226,6 +230,7 @@
                 }]
         }, {
             "name": "getImageURL",
+            "description": "Get the image URL for an image of a place.",
             "args": [{
                     "name": "apiKey",
                     "type": "credentials",
@@ -256,6 +261,7 @@
                 }]
         }, {
             "name": "addPlace",
+            "description": "Add a new place to Google Maps. The new place is available immediately in Nearby Searches initiated by your application. The new place also enters a moderation queue to be considered for Google Maps. A newly-added place does not appear in Text Search or Radar Search results, or to other applications, until it has been approved by the moderation process.",
             "args": [{
                     "name": "apiKey",
                     "type": "credentials",
