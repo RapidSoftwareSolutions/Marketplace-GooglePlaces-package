@@ -1,4 +1,6 @@
-Google Places API Web Service package
+[![](https://scdn.rapidapi.com/RapidAPI_banner.png)](https://rapidapi.com/package/GooglePlaces/functions?utm_source=RapidAPIGitHub_GooglePlacesFunctions&utm_medium=button&utm_content=RapidAPI_GitHub)
+
+#Google Places API Web Service package
 ===================
 
 
