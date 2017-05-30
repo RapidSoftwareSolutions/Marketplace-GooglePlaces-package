@@ -2,28 +2,23 @@
 
 $app->post('/api/GooglePlaces/getNearbyPlaces', function ($request, $response, $args) {
     $settings =  $this->settings;
-    
+
     $data = $request->getBody();
     $post_data = json_decode($data, true);
     if(!isset($post_data['args'])) {
         $data = $request->getParsedBody();
         $post_data = $data;
     }
-    
+
     $error = [];
     if(empty($post_data['args']['apiKey'])) {
         $error[] = 'apiKey';
     }
-    if(empty($post_data['args']['latitude'])) {
-        $error[] = 'latitude';
-    }
-    if(empty($post_data['args']['longitude'])) {
-        $error[] = 'longitude';
-    }
+
     if(empty($post_data['args']['radius'])) {
         $error[] = 'radius';
     }
-    
+
     if(!empty($error)) {
         $result['callback'] = 'error';
         $result['contextWrites']['to']['status_code'] = "REQUIRED_FIELDS";
@@ -31,11 +26,16 @@ $app->post('/api/GooglePlaces/getNearbyPlaces', function ($request, $response, $
         $result['contextWrites']['to']['fields'] = $error;
         return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($result);
     }
-    
-    
-    
+
+
+
     $query['key'] = $post_data['args']['apiKey'];
-    $query['location'] = $post_data['args']['latitude'] . ',' . $post_data['args']['longitude'];
+
+    if (isset($post_data['args']['coordinate'])){
+        $query['location'] = $post_data['args']['coordinate'];
+    } else {
+        $query['location'] = $post_data['args']['latitude'] . ',' . $post_data['args']['longitude'];
+    }
     $query['radius'] = $post_data['args']['radius'];
     if(!empty($post_data['args']['keyword'])) {
         $query['keyword'] = $post_data['args']['keyword'];
@@ -59,36 +59,37 @@ $app->post('/api/GooglePlaces/getNearbyPlaces', function ($request, $response, $
         $query['rankby'] = $post_data['args']['rank_by'];
     }
     if(!empty($post_data['args']['type'])) {
-        $query['types'] = $post_data['args']['type'];
+
+        $query['types'] = is_array($post_data['args']['type']) ? implode('|', $post_data['args']['type']) : $post_data['args']['type'];
     }
-    
-    
+
+
     $query_str = $settings['api_url'] . 'nearbysearch/json';
-    
+
     $client = $this->httpClient;
 
     try {
 
-        $resp = $client->get( $query_str, 
+        $resp = $client->get( $query_str,
             [
                 'query' => $query,
                 'verify' => false
             ]);
         $responseBody = $resp->getBody()->getContents();
         $rawBody = json_decode($resp->getBody());
-       
+
         $all_data[] = $rawBody;
-        
+
         if(isset($rawBody->next_page_token)) {
             sleep(1);
             $pagin = $this->pager;
             $ret = $pagin->page($query_str, $rawBody->next_page_token, $query);
-         
+
             $merge = array_merge($all_data[0]->results, $ret);
-        
+
             $all_data[0]->results = $merge;
-        }        
-        
+        }
+
         if(!empty(json_decode($responseBody)->results) && json_decode($responseBody)->status == 'OK') {
             $result['callback'] = 'success';
             $result['contextWrites']['to'] = is_array($all_data) ? $all_data : json_decode($all_data);

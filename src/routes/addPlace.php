@@ -20,12 +20,7 @@ $app->post('/api/GooglePlaces/addPlace', function ($request, $response, $args) {
     if(empty($post_data['args']['language'])) {
         $error[] = 'language';
     }
-    if(empty($post_data['args']['latitude'])) {
-        $error[] = 'latitude';
-    }
-    if(empty($post_data['args']['longitude'])) {
-        $error[] = 'longitude';
-    }
+
     if(empty($post_data['args']['name'])) {
         $error[] = 'name';
     }
@@ -44,9 +39,16 @@ $app->post('/api/GooglePlaces/addPlace', function ($request, $response, $args) {
     
     
     $query['key'] = $post_data['args']['apiKey'];
-    
-    $params['location']['lat'] = (float) $post_data['args']['latitude'];
-    $params['location']['lng'] = (float) $post_data['args']['longitude'];
+    if (isset($post_data['args']['coordinate'])) {
+        $params['location']['lat'] = explode(',',$post_data['args']['coordinate'])[0];
+        $params['location']['lng'] = explode(',',$post_data['args']['coordinate'])[1];
+
+        $query['location'] = $post_data['args']['coordinate'];
+    } else {
+        $params['location']['lat'] = (float) $post_data['args']['latitude'];
+        $params['location']['lng'] = (float) $post_data['args']['longitude'];
+    }
+
     $params['accuracy'] = (int) $post_data['args']['accuracy'];
     $params['name'] = $post_data['args']['name'];
     if(!empty($post_data['args']['address'])) {

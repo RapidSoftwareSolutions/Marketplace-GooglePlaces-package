@@ -17,6 +17,15 @@ How to get `apiKey`
  4. In the sidebar on the left, select **Credentials**.
  5. If your project has no API key for the server, create it now - **Add credentials > API key > Server key**;
 
+## Custom datatypes: 
+ |Datatype|Description|Example
+ |--------|-----------|----------
+ |Datepicker|String which includes date and time|```2016-05-28 00:00:00```
+ |Map|String which includes latitude and longitude coma separated|```50.37, 26.56```
+ |List|Simple array|```["123", "sample"]``` 
+ |Select|String with predefined values|```sample```
+ |Array|Array of objects|```[{"Second name":"123","Age":"12","Photo":"sdf","Draft":"sdfsdf"},{"name":"adi","Second name":"bla","Age":"4","Photo":"asfserwe","Draft":"sdfsdf"}] ```
+ 
 
 
 **getNearbyPlaces**
@@ -27,17 +36,16 @@ Search for places within a specified area. You can refine your search request by
 | Field                  | Type      | Description   |
 | -------                | ----      | ---           |
 | `apiKey`              | credentials    |  The api key obtained from Google Developers Console.    |
-| `latitude`             | string    |  The latitude of place.   |
-| `longitude`            | string    |  The longitude of place. |
+| `coordinate`             | Map    |  The latitude nad longitude of place coma separated.|
 | `radius`               | string    |  Distance in meters over which the results must be found. The maximum allowable range is 50 000 meters. Note that the radius parameter should not be used if the value rank_by = distance |
-| `rank_by (optional)`   | string    |  The order of the results. The possible values are: **prominence** (the default) - the results are sorted by popularity. Priority is given to the ranking of the more famous sites located in a given area. At a certain place affect the rating in the Google index, the overall popularity and other factors. **distance** - the results are sorted in order of proximity to the point specified in the parameter location. If you specify distance, you must also specify one or more parameters keyword, name, or type. |
+| `rank_by (optional)`   | Select    |  The order of the results. The possible values are: **prominence** (the default) - the results are sorted by popularity. Priority is given to the ranking of the more famous sites located in a given area. At a certain place affect the rating in the Google index, the overall popularity and other factors. **distance** - the results are sorted in order of proximity to the point specified in the parameter location. If you specify distance, you must also specify one or more parameters keyword, name, or type. |
 | `keyword (optional)`   | string    |  The word on which the search is conducted in all contents are indexed by Google for a given place, including the name, type, address, user reviews and third-party content. |
 | `language (optional)`  | string    |  The language code, which should be possible to return the results. See the [List of supported languages and their codes](https://developers.google.com/maps/faq?authuser=1#languagesupport). |
-| `minimum_price (optional)`  | string    |  The price range, limiting the search results. Valid entries are from 0 (free) to 4 (most expensive). |
-| `maximum_price (optional)`  | string    |  The price range, limiting the search results. Valid entries are from 0 (free) to 4 (most expensive). |
+| `minimum_price (optional)`  | Select    |  The price range, limiting the search results. Valid entries are from 0 (free) to 4 (most expensive). |
+| `maximum_price (optional)`  | Select    |  The price range, limiting the search results. Valid entries are from 0 (free) to 4 (most expensive). |
 | `name (optional)`      | string    |  The space-separated words that are being sought in the names of places. |
 | `open_now (optional)`  | string    |  Limit search results to only those organizations (establishments) that are open at the time of sending the request. |
-| `type (optional)`      | string    |  Limit search results to only those places whose type corresponds to at least one of these. Types should be separated by a vertical bar (type1 \| type2 \| etc). See the [List of supported types](https://developers.google.com/places/supported_types?authuser=1) |
+| `type (optional)`      | List    |  Limit search results to only those places whose type corresponds to at least one of these. Types should be separated by a vertical bar (type1 \| type2 \| etc). See the [List of supported types](https://developers.google.com/places/supported_types?authuser=1) |
 
 
 **searchPlacesByText**
@@ -49,14 +57,13 @@ The service responds with a list of places matching the text string and any loca
 | -------                | ----      | ---           |
 | `apiKey`              | credentials    |  The api key obtained from Google Developers Console.    |
 | `query`                | string    |  The phrase that is searched for, such as "restaurant".  |
-| `latitude (optional)`  | string    |  The latitude of place.   |
-| `longitude (optional)` | string    |  The longitude of place. |
+| `coordinate`             | Map    |  The latitude nad longitude of place coma separated.|
 | `radius (optional)`    | string    |  Distance in meters over which the results must be found. The maximum allowable range is 50 000 meters. Note that the radius parameter should not be used if the value rank_by = distance |
 | `language (optional)`  | string    |  The language code, which should be possible to return the results. See the [List of supported languages and their codes](https://developers.google.com/maps/faq?authuser=1#languagesupport). |
-| `minimum_price (optional)`  | string    |  The price range, limiting the search results. Valid entries are from 0 (free) to 4 (most expensive). |
-| `maximum_price (optional)`  | string    |  The price range, limiting the search results. Valid entries are from 0 (free) to 4 (most expensive). |
+| `minimum_price (optional)`  | Select    |  The price range, limiting the search results. Valid entries are from 0 (free) to 4 (most expensive). |
+| `maximum_price (optional)`  | Select    |  The price range, limiting the search results. Valid entries are from 0 (free) to 4 (most expensive). |
 | `open_now (optional)`  | string    |  Limit search results to only those organizations (establishments) that are open at the time of sending the request. |
-| `type (optional)`      | string    |  Limit search results to only those places whose type corresponds to at least one of these. Types should be separated by a vertical bar (type1 \| type2 \| etc). See the [List of supported types](https://developers.google.com/places/supported_types?authuser=1) |
+| `type (optional)`      | List    |  Limit search results to only those places whose type corresponds to at least one of these. Types should be separated by a vertical bar (type1 \| type2 \| etc). See the [List of supported types](https://developers.google.com/places/supported_types?authuser=1) |
 
 
 **getNearbyPlacesRadar**
@@ -67,16 +74,15 @@ Search for up to 200 places at once, but with less detail than is typically retu
 | Field                  | Type      | Description   |
 | -------                | ----      | ---           |
 | `apiKey`              | credentials    |  The api key obtained from Google Developers Console.    |
-| `latitude`             | string    |  The latitude of place.   |
-| `longitude`            | string    |  The longitude of place. |
+| `coordinate`             | Map    |  The latitude nad longitude of place coma separated.|
 | `radius`               | string    |  Distance in meters over which the results must be found. The maximum allowable range is 50 000 meters. Note that the radius parameter should not be used if the value rank_by = distance |
 | `keyword (optional)`   | string    |  The word on which the search is conducted in all contents are indexed by Google for a given place, including the name, type, address, user reviews and third-party content. |
 | `name (optional)`      | string    |  The space-separated words that are being sought in the names of places. |
 | `language (optional)`  | string    |  The language code, which should be possible to return the results. See the [List of supported languages and their codes](https://developers.google.com/maps/faq?authuser=1#languagesupport). |
-| `maximum_price (optional)`  | string    |  The price range, limiting the search results. Valid entries are from 0 (free) to 4 (most expensive). |
-| `minimum_price (optional)`  | string    |  The price range, limiting the search results. Valid entries are from 0 (free) to 4 (most expensive). |
+| `maximum_price (optional)`  | Select    |  The price range, limiting the search results. Valid entries are from 0 (free) to 4 (most expensive). |
+| `minimum_price (optional)`  | Select    |  The price range, limiting the search results. Valid entries are from 0 (free) to 4 (most expensive). |
 | `open_now (optional)`  | string    |  Limit search results to only those organizations (establishments) that are open at the time of sending the request. |
-| `type (optional)`      | string    |  Limit search results to only those places whose type corresponds to at least one of these. Types should be separated by a vertical bar (type1 \| type2 \| etc). See the [List of supported types](https://developers.google.com/places/supported_types?authuser=1) |
+| `type (optional)`      | List    |  Limit search results to only those places whose type corresponds to at least one of these. Types should be separated by a vertical bar (type1 \| type2 \| etc). See the [List of supported types](https://developers.google.com/places/supported_types?authuser=1) |
 
 
 **getPlaceDetails**
@@ -114,8 +120,7 @@ Add a new place to Google Maps. The new place is available immediately in Nearby
 | `accuracy`             | number    |  The accuracy of the location of the signal (in meters), which is based on the request. |
 | `address (optional)`   | string    |  The address place to be added. |
 | `language`             | string    |  The language in which the title is transferred to the place. See the [List of supported languages and their codes](https://developers.google.com/maps/faq#languagesupport). |
-| `latitude`             | string    |  The latitude of place.   |
-| `longitude`            | string    |  The longitude of place. |
+| `coordinate`             | Map    |  The latitude nad longitude of place coma separated.|
 | `name`                 | string    |  The full name of the place. No more than 255 characters. |
 | `phoneNumber (optional)` | string    |  The phone number of the place. |
 | `types`                | string    |  The category to which this place. See [supported types](https://developers.google.com/places/supported_types) |

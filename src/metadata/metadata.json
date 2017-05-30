@@ -1,324 +1,419 @@
 {
-    "package": "GooglePlaces",
-    "tagline": "Google Places API",
-    "description": "Add location awareness for more contextual results.",
-    "image": "http:\/\/logo.clearbit.com\/google.com",
-    "repo": "https:\/\/github.com\/RapidSoftwareSolutions\/Marketplace-GooglePlaces-package",
-    "keywords": ["API", "Google", "geo", "geography", "geolocal", "geotarget", "geotargeted", "local", "location", "maps", "marketing", "places", "recommendations"],
-    "accounts": {
-        "domain": "google.com",
-        "credentials": ["apiKey"]
+  "package": "GooglePlaces",
+  "tagline": "Google Places API",
+  "description": "Add location awareness for more contextual results.",
+  "image": "http:\/\/logo.clearbit.com\/google.com",
+  "repo": "https:\/\/github.com\/RapidSoftwareSolutions\/Marketplace-GooglePlaces-package",
+  "keywords": [
+    "API",
+    "Google",
+    "geo",
+    "geography",
+    "geolocal",
+    "geotarget",
+    "geotargeted",
+    "local",
+    "location",
+    "maps",
+    "marketing",
+    "places",
+    "recommendations"
+  ],
+  "accounts": {
+    "domain": "google.com",
+    "credentials": [
+      "apiKey"
+    ]
+  },
+  "blocks": [
+    {
+      "name": "getNearbyPlaces",
+      "description": "Search for places within a specified area. You can refine your search request by supplying keywords or specifying the type of place you are searching for.",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "The api key obtained from Google Developers Console.",
+          "required": true
+        },
+        {
+          "name": "coordinate",
+          "type": "Map",
+          "info": "The latitude nad longitude of place coma separated.",
+          "required": true
+        },
+
+        {
+          "name": "radius",
+          "type": "String",
+          "info": "Distance in meters over which the results must be found. The maximum allowable range is 50 000 meters. Note that the radius parameter should not be used if the value rank_by = distance.",
+          "required": true
+        },
+        {
+          "name": "rank_by",
+          "type": "Select",
+          "options": ["prominence", "Distance"],
+          "info": "The order of the results. The possible values are: prominence (the default) - the results are sorted by popularity. Priority is given to the ranking of the more famous sites located in a given area. At a certain place affect the rating in the Google index, the overall popularity and other factors. Distance - the results are sorted in order of proximity to the point specified in the parameter location. If you specify distance, you must also specify one or more parameters keyword, name, or type.",
+          "required": false
+        },
+        {
+          "name": "keyword",
+          "type": "String",
+          "info": "The word on which the search is conducted in all contents are indexed by Google for a given place, including the name, type, address, user reviews and third-party content.",
+          "required": false
+        },
+        {
+          "name": "language",
+          "type": "String",
+          "info": "The language code, which should be possible to return the results.",
+          "required": false
+        },
+        {
+          "name": "minimum_price",
+          "type": "Select",
+          "options": ["0","1", "2", "3", "4"],
+          "info": "The price range, limiting the search results. Valid entries are from 0 (free) to 4 (most expensive). ",
+          "required": false
+        },
+        {
+          "name": "maximum_price",
+          "type": "Select",
+          "options": ["0","1", "2", "3", "4"],
+          "info": "The price range, limiting the search results. Valid entries are from 0 (free) to 4 (most expensive). ",
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "info": "The space-separated words that are being sought in the names of places.",
+          "required": false
+        },
+        {
+          "name": "open_now",
+          "type": "String",
+          "info": "Limit search results to only those organizations (establishments) that are open at the time of sending the request.",
+          "required": false
+        },
+        {
+          "name": "type",
+          "type": "List",
+          "info": "limit search results to only those places whose type corresponds to at least one of these. Types should be separated by a vertical bar (type1 | type2 | etc).",
+          "required": false,
+          "structure": {
+            "name": "type",
+            "type": "String",
+            "info": "Single type"
+          }
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
     },
-    "blocks": [{
-            "name": "getNearbyPlaces",
-            "description": "Search for places within a specified area. You can refine your search request by supplying keywords or specifying the type of place you are searching for.",
-            "args": [{
-                    "name": "apiKey",
-                    "type": "credentials",
-                    "info": "The api key obtained from Google Developers Console.",
-                    "required": true
-                }, {
-                    "name": "latitude",
-                    "type": "String",
-                    "info": "The latitude of place.",
-                    "required": true
-                }, {
-                    "name": "longitude",
-                    "type": "String",
-                    "info": "The longitude of place.",
-                    "required": true
-                }, {
-                    "name": "radius",
-                    "type": "String",
-                    "info": "Distance in meters over which the results must be found. The maximum allowable range is 50 000 meters. Note that the radius parameter should not be used if the value rank_by = distance.",
-                    "required": true
-                }, {
-                    "name": "rank_by",
-                    "type": "String",
-                    "info": "The order of the results. The possible values are: prominence (the default) - the results are sorted by popularity. Priority is given to the ranking of the more famous sites located in a given area. At a certain place affect the rating in the Google index, the overall popularity and other factors. Distance - the results are sorted in order of proximity to the point specified in the parameter location. If you specify distance, you must also specify one or more parameters keyword, name, or type.",
-                    "required": false
-                }, {
-                    "name": "keyword",
-                    "type": "String",
-                    "info": "The word on which the search is conducted in all contents are indexed by Google for a given place, including the name, type, address, user reviews and third-party content.",
-                    "required": false
-                }, {
-                    "name": "language",
-                    "type": "String",
-                    "info": "The language code, which should be possible to return the results.",
-                    "required": false
-                }, {
-                    "name": "minimum_price",
-                    "type": "String",
-                    "info": "The price range, limiting the search results. Valid entries are from 0 (free) to 4 (most expensive). ",
-                    "required": false
-                }, {
-                    "name": "maximum_price",
-                    "type": "String",
-                    "info": "The price range, limiting the search results. Valid entries are from 0 (free) to 4 (most expensive). ",
-                    "required": false
-                }, {
-                    "name": "name",
-                    "type": "String",
-                    "info": "The space-separated words that are being sought in the names of places.",
-                    "required": false
-                }, {
-                    "name": "open_now",
-                    "type": "String",
-                    "info": "Limit search results to only those organizations (establishments) that are open at the time of sending the request.",
-                    "required": false
-                }, {
-                    "name": "type",
-                    "type": "String",
-                    "info": "limit search results to only those places whose type corresponds to at least one of these. Types should be separated by a vertical bar (type1 | type2 | etc).",
-                    "required": false
-                }],
-            "callbacks": [{
-                    "name": "error",
-                    "info": "Error"
-                }, {
-                    "name": "success",
-                    "info": "Success"
-                }]
-        }, {
-            "name": "searchPlacesByText",
-            "description": "The service responds with a list of places matching the text string and any location bias that has been set.",
-            "args": [{
-                    "name": "apiKey",
-                    "type": "credentials",
-                    "info": "The api key obtained from Google Developers Console.",
-                    "required": true
-                }, {
-                    "name": "query",
-                    "type": "String",
-                    "info": "The phrase that is searched for, such as 'restaurant'.",
-                    "required": true
-                }, {
-                    "name": "latitude",
-                    "type": "String",
-                    "info": "The latitude of place.",
-                    "required": false
-                }, {
-                    "name": "longitude",
-                    "type": "String",
-                    "info": "The longitude of place.",
-                    "required": false
-                }, {
-                    "name": "radius",
-                    "type": "String",
-                    "info": "Distance in meters over which the results must be found. The maximum allowable range is 50 000 meters.",
-                    "required": false
-                }, {
-                    "name": "language",
-                    "type": "String",
-                    "info": "The language code, which should be possible to return the results.",
-                    "required": false
-                }, {
-                    "name": "minimum_price",
-                    "type": "String",
-                    "info": "The price range, limiting the search results. Valid entries are from 0 (free) to 4 (most expensive). ",
-                    "required": false
-                }, {
-                    "name": "maximum_price",
-                    "type": "String",
-                    "info": "The price range, limiting the search results. Valid entries are from 0 (free) to 4 (most expensive). ",
-                    "required": false
-                }, {
-                    "name": "open_now",
-                    "type": "String",
-                    "info": "Limit search results to only those organizations (establishments) that are open at the time of sending the request.",
-                    "required": false
-                }, {
-                    "name": "type",
-                    "type": "String",
-                    "info": "Limit search results to only those places whose type corresponds to at least one of these. Types should be separated by a vertical bar (type1 | type2 | etc).",
-                    "required": false
-                }],
-            "callbacks": [{
-                    "name": "error",
-                    "info": "Error"
-                }, {
-                    "name": "success",
-                    "info": "Success"
-                }]
-        }, {
-            "name": "getNearbyPlacesRadar",
-            "description": "Search for up to 200 places at once, but with less detail than is typically returned from a Text Search or Nearby Search request.",
-            "args": [{
-                    "name": "apiKey",
-                    "type": "credentials",
-                    "info": "The api key obtained from Google Developers Console.",
-                    "required": true
-                }, {
-                    "name": "latitude",
-                    "type": "String",
-                    "info": "The latitude of place.",
-                    "required": true
-                }, {
-                    "name": "longitude",
-                    "type": "String",
-                    "info": "The longitude of place.",
-                    "required": true
-                }, {
-                    "name": "radius",
-                    "type": "String",
-                    "info": "Distance in meters over which the results must be found. The maximum allowable range is 50 000 meters.",
-                    "required": true
-                }, {
-                    "name": "keyword",
-                    "type": "String",
-                    "info": "TThe word on which the search is conducted in all contents are indexed by Google for a given place, including the name, type, address, user reviews and third-party content.",
-                    "required": false
-                }, {
-                    "name": "name",
-                    "type": "String",
-                    "info": "The space-separated words that are being sought in the names of places.",
-                    "required": false
-                }, {
-                    "name": "language",
-                    "type": "String",
-                    "info": "The language code, which should be possible to return the results.",
-                    "required": false
-                }, {
-                    "name": "minimum_price",
-                    "type": "String",
-                    "info": "The price range, limiting the search results. Valid entries are from 0 (free) to 4 (most expensive). ",
-                    "required": false
-                }, {
-                    "name": "maximum_price",
-                    "type": "String",
-                    "info": "The price range, limiting the search results. Valid entries are from 0 (free) to 4 (most expensive). ",
-                    "required": false
-                }, {
-                    "name": "open_now",
-                    "type": "String",
-                    "info": "Limit search results to only those organizations (establishments) that are open at the time of sending the request.",
-                    "required": false
-                }, {
-                    "name": "type",
-                    "type": "String",
-                    "info": "Limit search results to only those places whose type corresponds to at least one of these. Types should be separated by a vertical bar (type1 | type2 | etc).",
-                    "required": false
-                }],
-            "callbacks": [{
-                    "name": "error",
-                    "info": "Error"
-                }, {
-                    "name": "success",
-                    "info": "Success"
-                }]
-        }, {
-            "name": "getPlaceDetails",
-            "description": "Request more details about a particular establishment or point of interest.",
-            "args": [{
-                    "name": "apiKey",
-                    "type": "credentials",
-                    "info": "The api key obtained from Google Developers Console.",
-                    "required": true
-                }, {
-                    "name": "place_id",
-                    "type": "String",
-                    "info": "The unique text identifier, returned by the getNearbyPlaces method.",
-                    "required": true
-                }],
-            "callbacks": [{
-                    "name": "error",
-                    "info": "Error"
-                }, {
-                    "name": "success",
-                    "info": "Success"
-                }]
-        }, {
-            "name": "getImageURL",
-            "description": "Get the image URL for an image of a place.",
-            "args": [{
-                    "name": "apiKey",
-                    "type": "credentials",
-                    "info": "The api key obtained from Google Developers Console.",
-                    "required": true
-                }, {
-                    "name": "image_id",
-                    "type": "String",
-                    "info": "The unique text identifier 'photo_reference', returned by the getNearbyPlaces method.",
-                    "required": true
-                }, {
-                    "name": "max_width",
-                    "type": "String",
-                    "info": "Indicate the values in pixels for the maximum width of the returned image.",
-                    "required": true
-                }, {
-                    "name": "max_height",
-                    "type": "String",
-                    "info": "Indicate the values in pixels for the maximum width of the returned image.",
-                    "required": true
-                }],
-            "callbacks": [{
-                    "name": "error",
-                    "info": "Error"
-                }, {
-                    "name": "success",
-                    "info": "Success"
-                }]
-        }, {
-            "name": "addPlace",
-            "description": "Add a new place to Google Maps. The new place is available immediately in Nearby Searches initiated by your application. The new place also enters a moderation queue to be considered for Google Maps. A newly-added place does not appear in Text Search or Radar Search results, or to other applications, until it has been approved by the moderation process.",
-            "args": [{
-                    "name": "apiKey",
-                    "type": "credentials",
-                    "info": "The api key obtained from Google Developers Console.",
-                    "required": true
-                }, {
-                    "name": "accuracy",
-                    "type": "Number",
-                    "info": "The accuracy of the location of the signal (in meters), which is based on the request.",
-                    "required": true
-                }, {
-                    "name": "address",
-                    "type": "String",
-                    "info": "Indicate the values in pixels for the maximum width of the returned image.",
-                    "required": true
-                }, {
-                    "name": "language",
-                    "type": "String",
-                    "info": "The language in which the title is transferred to the place.",
-                    "required": true
-                }, {
-                    "name": "latitude",
-                    "type": "String",
-                    "info": "The latitude of place.",
-                    "required": true
-                }, {
-                    "name": "longitude",
-                    "type": "String",
-                    "info": "The longitude of place.",
-                    "required": true
-                }, {
-                    "name": "name",
-                    "type": "String",
-                    "info": "The full name of the place. No more than 255 characters.",
-                    "required": true
-                }, {
-                    "name": "phoneNumber",
-                    "type": "String",
-                    "info": "The phone number of the place.",
-                    "required": false
-                }, {
-                    "name": "types",
-                    "type": "String",
-                    "info": "The category to which this place.",
-                    "required": true
-                }, {
-                    "name": "website",
-                    "type": "String",
-                    "info": "The URL-address of the official web site of the place, such as home organization page.",
-                    "required": false
-                }],
-            "callbacks": [{
-                    "name": "error",
-                    "info": "Error"
-                }, {
-                    "name": "success",
-                    "info": "Success"
-                }]
-        }]
+    {
+      "name": "searchPlacesByText",
+      "description": "The service responds with a list of places matching the text string and any location bias that has been set.",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "The api key obtained from Google Developers Console.",
+          "required": true
+        },
+        {
+          "name": "query",
+          "type": "String",
+          "info": "The phrase that is searched for, such as 'restaurant'.",
+          "required": true
+        },
+        {
+          "name": "coordinate",
+          "type": "Map",
+          "info": "The latitude nad longitude of place coma separated.",
+          "required": true
+        },
+        {
+          "name": "radius",
+          "type": "String",
+          "info": "Distance in meters over which the results must be found. The maximum allowable range is 50 000 meters.",
+          "required": false
+        },
+        {
+          "name": "language",
+          "type": "String",
+          "info": "The language code, which should be possible to return the results.",
+          "required": false
+        },
+        {
+          "name": "minimum_price",
+          "type": "Select",
+          "options": ["0","1", "2", "3", "4"],
+          "info": "The price range, limiting the search results. Valid entries are from 0 (free) to 4 (most expensive). ",
+          "required": false
+        },
+        {
+          "name": "maximum_price",
+          "type": "Select",
+          "options": ["0","1", "2", "3", "4"],
+          "info": "The price range, limiting the search results. Valid entries are from 0 (free) to 4 (most expensive). ",
+          "required": false
+        },
+        {
+          "name": "open_now",
+          "type": "String",
+          "info": "Limit search results to only those organizations (establishments) that are open at the time of sending the request.",
+          "required": false
+        },
+        {
+          "name": "type",
+          "type": "List",
+          "info": "Limit search results to only those places whose type corresponds to at least one of these. Types should be separated by a vertical bar (type1 | type2 | etc).",
+          "required": false,
+          "structure": {
+            "name": "type",
+            "type": "String",
+            "info": "Single type"
+          }
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getNearbyPlacesRadar",
+      "description": "Search for up to 200 places at once, but with less detail than is typically returned from a Text Search or Nearby Search request.",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "The api key obtained from Google Developers Console.",
+          "required": true
+        },
+        {
+          "name": "coordinate",
+          "type": "Map",
+          "info": "The latitude nad longitude of place coma separated.",
+          "required": true
+        },
+        {
+          "name": "radius",
+          "type": "String",
+          "info": "Distance in meters over which the results must be found. The maximum allowable range is 50 000 meters.",
+          "required": true
+        },
+        {
+          "name": "keyword",
+          "type": "String",
+          "info": "TThe word on which the search is conducted in all contents are indexed by Google for a given place, including the name, type, address, user reviews and third-party content.",
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "info": "The space-separated words that are being sought in the names of places.",
+          "required": false
+        },
+        {
+          "name": "language",
+          "type": "String",
+          "info": "The language code, which should be possible to return the results.",
+          "required": false
+        },
+        {
+          "name": "minimum_price",
+          "type": "Select",
+          "options": ["0","1", "2", "3", "4"],
+          "info": "The price range, limiting the search results. Valid entries are from 0 (free) to 4 (most expensive). ",
+          "required": false
+        },
+        {
+          "name": "maximum_price",
+          "type": "Select",
+          "options": ["0","1", "2", "3", "4"],
+          "info": "The price range, limiting the search results. Valid entries are from 0 (free) to 4 (most expensive). ",
+          "required": false
+        },
+        {
+          "name": "open_now",
+          "type": "String",
+          "info": "Limit search results to only those organizations (establishments) that are open at the time of sending the request.",
+          "required": false
+        },
+        {
+          "name": "type",
+          "type": "List",
+          "info": "Limit search results to only those places whose type corresponds to at least one of these. Types should be separated by a vertical bar (type1 | type2 | etc).",
+          "required": false,
+          "structure": {
+            "name": "type",
+            "type": "String",
+            "info": "Single type"
+          }
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getPlaceDetails",
+      "description": "Request more details about a particular establishment or point of interest.",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "The api key obtained from Google Developers Console.",
+          "required": true
+        },
+        {
+          "name": "place_id",
+          "type": "String",
+          "info": "The unique text identifier, returned by the getNearbyPlaces method.",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getImageURL",
+      "description": "Get the image URL for an image of a place.",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "The api key obtained from Google Developers Console.",
+          "required": true
+        },
+        {
+          "name": "image_id",
+          "type": "String",
+          "info": "The unique text identifier 'photo_reference', returned by the getNearbyPlaces method.",
+          "required": true
+        },
+        {
+          "name": "max_width",
+          "type": "String",
+          "info": "Indicate the values in pixels for the maximum width of the returned image.",
+          "required": true
+        },
+        {
+          "name": "max_height",
+          "type": "String",
+          "info": "Indicate the values in pixels for the maximum width of the returned image.",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "addPlace",
+      "description": "Add a new place to Google Maps. The new place is available immediately in Nearby Searches initiated by your application. The new place also enters a moderation queue to be considered for Google Maps. A newly-added place does not appear in Text Search or Radar Search results, or to other applications, until it has been approved by the moderation process.",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "The api key obtained from Google Developers Console.",
+          "required": true
+        },
+        {
+          "name": "accuracy",
+          "type": "Number",
+          "info": "The accuracy of the location of the signal (in meters), which is based on the request.",
+          "required": true
+        },
+        {
+          "name": "address",
+          "type": "String",
+          "info": "Indicate the values in pixels for the maximum width of the returned image.",
+          "required": true
+        },
+        {
+          "name": "language",
+          "type": "String",
+          "info": "The language in which the title is transferred to the place.",
+          "required": true
+        },
+        {
+          "name": "coordinate",
+          "type": "Map",
+          "info": "The latitude nad longitude of place coma separated.",
+          "required": true
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "info": "The full name of the place. No more than 255 characters.",
+          "required": true
+        },
+        {
+          "name": "phoneNumber",
+          "type": "String",
+          "info": "The phone number of the place.",
+          "required": false
+        },
+        {
+          "name": "types",
+          "type": "String",
+          "info": "The category to which this place.",
+          "required": true
+        },
+        {
+          "name": "website",
+          "type": "String",
+          "info": "The URL-address of the official web site of the place, such as home organization page.",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    }
+  ]
 }

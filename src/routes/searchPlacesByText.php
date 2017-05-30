@@ -30,7 +30,9 @@ $app->post('/api/GooglePlaces/searchPlacesByText', function ($request, $response
     
     $query['key'] = $post_data['args']['apiKey'];
     $query['query'] = $post_data['args']['query'];
-    if(!empty($post_data['args']['latitude']) && !empty($post_data['args']['longitude'])) {
+    if (isset($post_data['args']['coordinate'])) {
+        $query['location'] = $post_data['args']['coordinate'];
+    } else {
         $query['location'] = $post_data['args']['latitude'] . ',' . $post_data['args']['longitude'];
     }
     if(!empty($post_data['args']['radius'])) {
@@ -49,7 +51,7 @@ $app->post('/api/GooglePlaces/searchPlacesByText', function ($request, $response
         $query['opennow'] = $post_data['args']['open_now'];
     }
     if(!empty($post_data['args']['type'])) {
-        $query['types'] = $post_data['args']['type'];
+        $query['types'] = is_array($post_data['args']['type']) ? implode('|', $post_data['args']['type']) : $post_data['args']['type'];
     }
     
     

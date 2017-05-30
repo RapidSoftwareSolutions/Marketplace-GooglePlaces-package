@@ -14,12 +14,7 @@ $app->post('/api/GooglePlaces/getNearbyPlacesRadar', function ($request, $respon
     if(empty($post_data['args']['apiKey'])) {
         $error[] = 'apiKey';
     }
-    if(empty($post_data['args']['latitude'])) {
-        $error[] = 'latitude';
-    }
-    if(empty($post_data['args']['longitude'])) {
-        $error[] = 'longitude';
-    }
+
     if(empty($post_data['args']['radius'])) {
         $error[] = 'radius';
     }
@@ -38,7 +33,11 @@ $app->post('/api/GooglePlaces/getNearbyPlacesRadar', function ($request, $respon
     
     
     $query['key'] = $post_data['args']['apiKey'];
-    $query['location'] = $post_data['args']['latitude'] . ',' . $post_data['args']['longitude'];
+    if (isset($post_data['args']['coordinate'])) {
+        $query['location'] = $post_data['args']['coordinate'];
+    } else {
+        $query['location'] = $post_data['args']['latitude'] . ',' . $post_data['args']['longitude'];
+    }
     $query['radius'] = $post_data['args']['radius'];
     if(!empty($post_data['args']['keyword'])) {
         $query['keyword'] = $post_data['args']['keyword'];
@@ -59,7 +58,7 @@ $app->post('/api/GooglePlaces/getNearbyPlacesRadar', function ($request, $respon
         $query['opennow'] = $post_data['args']['open_now'];
     }
     if(!empty($post_data['args']['type'])) {
-        $query['types'] = $post_data['args']['type'];
+        $query['types'] = is_array($post_data['args']['type']) ? implode('|', $post_data['args']['type']) : $post_data['args']['type'];
     }
     
     
