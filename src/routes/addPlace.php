@@ -42,8 +42,6 @@ $app->post('/api/GooglePlaces/addPlace', function ($request, $response, $args) {
     if (isset($post_data['args']['coordinate'])) {
         $params['location']['lat'] = explode(',',$post_data['args']['coordinate'])[0];
         $params['location']['lng'] = explode(',',$post_data['args']['coordinate'])[1];
-
-        $query['location'] = $post_data['args']['coordinate'];
     } else {
         $params['location']['lat'] = (float) $post_data['args']['latitude'];
         $params['location']['lng'] = (float) $post_data['args']['longitude'];

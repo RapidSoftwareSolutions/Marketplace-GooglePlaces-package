@@ -31,7 +31,7 @@ $app->post('/api/GooglePlaces/searchPlacesByText', function ($request, $response
     $query['key'] = $post_data['args']['apiKey'];
     $query['query'] = $post_data['args']['query'];
     if (isset($post_data['args']['coordinate'])) {
-        $query['location'] = $post_data['args']['coordinate'];
+        $query['location'] = str_replace(' ', '',$post_data['args']['coordinate']);
     } else {
         $query['location'] = $post_data['args']['latitude'] . ',' . $post_data['args']['longitude'];
     }

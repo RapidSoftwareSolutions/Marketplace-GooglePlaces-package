@@ -32,7 +32,7 @@ $app->post('/api/GooglePlaces/getNearbyPlaces', function ($request, $response, $
     $query['key'] = $post_data['args']['apiKey'];
 
     if (isset($post_data['args']['coordinate'])){
-        $query['location'] = $post_data['args']['coordinate'];
+        $query['location'] = str_replace(' ', '',$post_data['args']['coordinate']);
     } else {
         $query['location'] = $post_data['args']['latitude'] . ',' . $post_data['args']['longitude'];
     }

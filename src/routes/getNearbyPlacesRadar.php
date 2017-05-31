@@ -34,7 +34,7 @@ $app->post('/api/GooglePlaces/getNearbyPlacesRadar', function ($request, $respon
     
     $query['key'] = $post_data['args']['apiKey'];
     if (isset($post_data['args']['coordinate'])) {
-        $query['location'] = $post_data['args']['coordinate'];
+        $query['location'] = str_replace(' ', '',$post_data['args']['coordinate']);
     } else {
         $query['location'] = $post_data['args']['latitude'] . ',' . $post_data['args']['longitude'];
     }
