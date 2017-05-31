@@ -82,7 +82,7 @@ Search for up to 200 places at once, but with less detail than is typically retu
 | `maximum_price (optional)`  | Select    |  The price range, limiting the search results. Valid entries are from 0 (free) to 4 (most expensive). |
 | `minimum_price (optional)`  | Select    |  The price range, limiting the search results. Valid entries are from 0 (free) to 4 (most expensive). |
 | `open_now (optional)`  | string    |  Limit search results to only those organizations (establishments) that are open at the time of sending the request. |
-| `type (optional)`      | List    |  Limit search results to only those places whose type corresponds to at least one of these. Types should be separated by a vertical bar (type1 \| type2 \| etc). See the [List of supported types](https://developers.google.com/places/supported_types?authuser=1) |
+| `type (optional)`      | List    |  Limit search results to only those places whose type corresponds to at least one of these. Types should be in array. See the [List of supported types](https://developers.google.com/places/supported_types?authuser=1) |
 
 
 **getPlaceDetails**

@@ -257,7 +257,7 @@
         {
           "name": "type",
           "type": "List",
-          "info": "Limit search results to only those places whose type corresponds to at least one of these. Types should be separated by a vertical bar (type1 | type2 | etc).",
+          "info": "Limit search results to only those places whose type corresponds to at least one of these. Types should be in array.",
           "required": false,
           "structure": {
             "name": "type",
