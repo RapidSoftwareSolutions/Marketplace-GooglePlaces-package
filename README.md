@@ -75,7 +75,7 @@ Search for up to 200 places at once, but with less detail than is typically retu
 | -------                | ----      | ---           |
 | `apiKey`              | credentials    |  The api key obtained from Google Developers Console.    |
 | `coordinate`             | Map    |  The latitude nad longitude of place coma separated.|
-| `radius`               | string    |  Distance in meters over which the results must be found. The maximum allowable range is 50 000 meters. Note that the radius parameter should not be used if the value rank_by = distance |
+| `radius`               | string    |  Distance in meters over which the results must be found. Note that radius must not be included if rankby=distance. The maximum allowable range is 50 000 meters. Note that the radius parameter should not be used if the value rank_by = distance |
 | `keyword (optional)`   | string    |  The word on which the search is conducted in all contents are indexed by Google for a given place, including the name, type, address, user reviews and third-party content. |
 | `name (optional)`      | string    |  The space-separated words that are being sought in the names of places. |
 | `language (optional)`  | string    |  The language code, which should be possible to return the results. See the [List of supported languages and their codes](https://developers.google.com/maps/faq?authuser=1#languagesupport). |

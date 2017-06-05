@@ -213,7 +213,7 @@
         {
           "name": "radius",
           "type": "String",
-          "info": "Distance in meters over which the results must be found. The maximum allowable range is 50 000 meters.",
+          "info": "Distance in meters over which the results must be found. The maximum allowable range is 50 000 meters. Note that radius must not be included if rankby=distance",
           "required": true
         },
         {
