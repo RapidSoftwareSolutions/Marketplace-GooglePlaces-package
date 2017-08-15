@@ -1,6 +1,6 @@
 <?php
 
-$app->post('/api/GooglePlaces/getNearbyPlacesRadar', function ($request, $response, $args) {
+$app->post('/api/GooglePlaces/getNearbyPlacesByType', function ($request, $response, $args) {
     $settings = $this->settings;
 
     $data = $request->getBody();
@@ -18,8 +18,8 @@ $app->post('/api/GooglePlaces/getNearbyPlacesRadar', function ($request, $respon
     if (empty($post_data['args']['radius'])) {
         $error[] = 'radius';
     }
-    if (empty($post_data['args']['keyword'])) {
-        $error[] = 'indicate keyword';
+    if (empty($post_data['args']['type'])) {
+        $error[] = 'indicate type';
     }
 
     if (!empty($error)) {

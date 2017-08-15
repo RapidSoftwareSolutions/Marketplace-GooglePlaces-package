@@ -76,13 +76,49 @@ Search for up to 200 places at once, but with less detail than is typically retu
 | `apiKey`              | credentials    |  The api key obtained from Google Developers Console.    |
 | `coordinate`             | Map    |  The latitude nad longitude of place coma separated.|
 | `radius`               | string    |  Distance in meters over which the results must be found. Note that radius must not be included if rankby=distance. The maximum allowable range is 50 000 meters. Note that the radius parameter should not be used if the value rank_by = distance |
-| `keyword (optional)`   | string    |  The word on which the search is conducted in all contents are indexed by Google for a given place, including the name, type, address, user reviews and third-party content. |
+| `keyword `   | string    |  The word on which the search is conducted in all contents are indexed by Google for a given place, including the name, type, address, user reviews and third-party content. |
 | `name (optional)`      | string    |  The space-separated words that are being sought in the names of places. |
 | `language (optional)`  | string    |  The language code, which should be possible to return the results. See the [List of supported languages and their codes](https://developers.google.com/maps/faq?authuser=1#languagesupport). |
 | `maximum_price (optional)`  | Select    |  The price range, limiting the search results. Valid entries are from 0 (free) to 4 (most expensive). |
 | `minimum_price (optional)`  | Select    |  The price range, limiting the search results. Valid entries are from 0 (free) to 4 (most expensive). |
 | `open_now (optional)`  | string    |  Limit search results to only those organizations (establishments) that are open at the time of sending the request. |
 | `type (optional)`      | List    |  Limit search results to only those places whose type corresponds to at least one of these. Types should be in array. See the [List of supported types](https://developers.google.com/places/supported_types?authuser=1) |
+
+**getNearbyPlacesByName**
+-------
+
+Search for up to 200 places at once, but with less detail than is typically returned from a Text Search or Nearby Search request.
+
+| Field                  | Type      | Description   |
+| -------                | ----      | ---           |
+| `apiKey`              | credentials    |  The api key obtained from Google Developers Console.    |
+| `coordinate`             | Map    |  The latitude nad longitude of place coma separated.|
+| `radius`               | string    |  Distance in meters over which the results must be found. Note that radius must not be included if rankby=distance. The maximum allowable range is 50 000 meters. Note that the radius parameter should not be used if the value rank_by = distance |
+| `keyword (optional)`   | string    |  The word on which the search is conducted in all contents are indexed by Google for a given place, including the name, type, address, user reviews and third-party content. |
+| `name `      | string    |  The space-separated words that are being sought in the names of places. |
+| `language (optional)`  | string    |  The language code, which should be possible to return the results. See the [List of supported languages and their codes](https://developers.google.com/maps/faq?authuser=1#languagesupport). |
+| `maximum_price (optional)`  | Select    |  The price range, limiting the search results. Valid entries are from 0 (free) to 4 (most expensive). |
+| `minimum_price (optional)`  | Select    |  The price range, limiting the search results. Valid entries are from 0 (free) to 4 (most expensive). |
+| `open_now (optional)`  | string    |  Limit search results to only those organizations (establishments) that are open at the time of sending the request. |
+| `type (optional)`      | List    |  Limit search results to only those places whose type corresponds to at least one of these. Types should be in array. See the [List of supported types](https://developers.google.com/places/supported_types?authuser=1) |
+
+**getNearbyPlacesByType**
+-------
+
+Search for up to 200 places at once, but with less detail than is typically returned from a Text Search or Nearby Search request.
+
+| Field                  | Type      | Description   |
+| -------                | ----      | ---           |
+| `apiKey`              | credentials    |  The api key obtained from Google Developers Console.    |
+| `coordinate`             | Map    |  The latitude nad longitude of place coma separated.|
+| `radius`               | string    |  Distance in meters over which the results must be found. Note that radius must not be included if rankby=distance. The maximum allowable range is 50 000 meters. Note that the radius parameter should not be used if the value rank_by = distance |
+| `keyword (optional)`   | string    |  The word on which the search is conducted in all contents are indexed by Google for a given place, including the name, type, address, user reviews and third-party content. |
+| `name (optional)`      | string    |  The space-separated words that are being sought in the names of places. |
+| `language (optional)`  | string    |  The language code, which should be possible to return the results. See the [List of supported languages and their codes](https://developers.google.com/maps/faq?authuser=1#languagesupport). |
+| `maximum_price (optional)`  | Select    |  The price range, limiting the search results. Valid entries are from 0 (free) to 4 (most expensive). |
+| `minimum_price (optional)`  | Select    |  The price range, limiting the search results. Valid entries are from 0 (free) to 4 (most expensive). |
+| `open_now (optional)`  | string    |  Limit search results to only those organizations (establishments) that are open at the time of sending the request. |
+| `type `      | List    |  Limit search results to only those places whose type corresponds to at least one of these. Types should be in array. See the [List of supported types](https://developers.google.com/places/supported_types?authuser=1) |
 
 
 **getPlaceDetails**

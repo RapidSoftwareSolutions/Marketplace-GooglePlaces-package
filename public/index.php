@@ -31,6 +31,8 @@ require __DIR__ . '/../src/middleware.php';
 require __DIR__ . '/../src/routes/getNearbyPlaces.php';
 require __DIR__ . '/../src/routes/searchPlacesByText.php';
 require __DIR__ . '/../src/routes/getNearbyPlacesRadar.php';
+require __DIR__ . '/../src/routes/getNearbyPlacesByName.php';
+require __DIR__ . '/../src/routes/getNearbyPlacesByType.php';
 require __DIR__ . '/../src/routes/getPlaceDetails.php';
 require __DIR__ . '/../src/routes/getImageURL.php';
 require __DIR__ . '/../src/routes/addPlace.php';
