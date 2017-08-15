@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="abe53c7f-dbd0-4c06-8f9a-3fb5aa9b1421" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/metadata/metadata.json" afterPath="$PROJECT_DIR$/src/metadata/metadata.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/addPlace.php" afterPath="$PROJECT_DIR$/src/routes/addPlace.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/getImageURL.php" afterPath="$PROJECT_DIR$/src/routes/getImageURL.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -23,57 +23,42 @@
       <file leaf-file-name="metadata.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/metadata/metadata.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="215" column="178" lean-forward="false" selection-start-line="215" selection-start-column="178" selection-end-line="215" selection-end-column="178" />
+            <state relative-caret-position="357">
+              <caret line="940" column="20" lean-forward="false" selection-start-line="940" selection-start-column="20" selection-end-line="940" selection-end-column="20" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="searchPlacesByText.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/routes/searchPlacesByText.php">
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="28" column="4" lean-forward="false" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="4" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="getNearbyPlaces.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/routes/getNearbyPlaces.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" column="24" lean-forward="true" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="251">
-                <caret line="77" column="84" lean-forward="true" selection-start-line="77" selection-start-column="84" selection-end-line="77" selection-end-column="84" />
-                <folding />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="addPlace.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/routes/addPlace.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="46" column="5" lean-forward="true" selection-start-line="46" selection-start-column="5" selection-end-line="46" selection-end-column="5" />
+            <state relative-caret-position="30">
+              <caret line="2" column="19" lean-forward="false" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>language</find>
+      <find>open_</find>
+      <find />
+      <find>establi</find>
+      <find>establishment</find>
+      <find>worsh</find>
+      <find>max</find>
+      <find>cafe</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>&quot;name&quot;: &quot;language&quot;,           &quot;type&quot;: &quot;Select&quot;,           &quot;options&quot;: [&quot;ar&quot;, &quot;bg&quot;, &quot;bn&quot;, &quot;ca&quot;, &quot;cs&quot;, &quot;da&quot;, &quot;de&quot;, &quot;el&quot;, &quot;en&quot;, &quot;en-AU&quot;, &quot;en-GB&quot;, &quot;es&quot;, &quot;eu&quot;, &quot;fa&quot;, &quot;fi&quot;, &quot;fil&quot;, &quot;fr&quot;, &quot;gl&quot;, &quot;gu&quot;, &quot;hi&quot;, &quot;hr&quot;, &quot;hu&quot;, &quot;id&quot;, &quot;it&quot;, &quot;iw&quot;, &quot;ja&quot;, &quot;kn&quot;, &quot;ko&quot;, &quot;lt&quot;, &quot;lv&quot;, &quot;ml&quot;, &quot;mr&quot;, &quot;nl&quot;, &quot;no&quot;, &quot;pl&quot;, &quot;pt&quot;, &quot;pt-BR&quot;, &quot;pt-PT&quot;, &quot;ro&quot;, &quot;ru&quot;, &quot;sk&quot;, &quot;sl&quot;, &quot;sr&quot;, &quot;sv&quot;, &quot;ta&quot;, &quot;te&quot;, &quot;th&quot;, &quot;tl&quot;, &quot;tr&quot;, &quot;uk&quot;, &quot;vi&quot;, &quot;zh-CN&quot;, &quot;zh-TW&quot;]</replace>
+      <replace>&quot;,&quot;</replace>
+      <replace>&quot;name&quot;: &quot;type&quot;,             &quot;type&quot;: &quot;Select&quot;,             &quot;options&quot;:[&quot;accounting&quot;,&quot;airport&quot;,&quot;amusement_park&quot;,&quot;aquarium&quot;,&quot;art_gallery&quot;,&quot;atm&quot;,&quot;bakery&quot;,&quot;bank&quot;,&quot;bar&quot;,&quot;beauty_salon&quot;,&quot;bicycle_store&quot;,&quot;book_store&quot;,&quot;bowling_alley&quot;,&quot;bus_station&quot;,&quot;cafe&quot;,&quot;campground&quot;,&quot;car_dealer&quot;,&quot;car_rental&quot;,&quot;car_repair&quot;,&quot;car_wash&quot;,&quot;casino&quot;,&quot;cemetery&quot;,&quot;church&quot;,&quot;city_hall&quot;,&quot;clothing_store&quot;,&quot;convenience_store&quot;,&quot;courthouse&quot;,&quot;dentist&quot;,&quot;department_store&quot;,&quot;doctor&quot;,&quot;electrician&quot;,&quot;electronics_store&quot;,&quot;embassy&quot;, &quot;fire_station&quot;,&quot;florist&quot;,&quot;funeral_home&quot;,&quot;furniture_store&quot;,&quot;gas_station&quot;,&quot;gym&quot;,&quot;hair_care&quot;,&quot;hardware_store&quot;, &quot;hindu_temple&quot;,&quot;home_goods_store&quot;,&quot;hospital&quot;,&quot;insurance_agency&quot;,&quot;jewelry_store&quot;,&quot;laundry&quot;,&quot;lawyer&quot;,&quot;library&quot;,&quot;liquor_store&quot;,&quot;local_government_office&quot;,&quot;locksmith&quot;,&quot;lodging&quot;,&quot;meal_delivery&quot;,&quot;meal_takeaway&quot;,&quot;mosque&quot;,&quot;movie_rental&quot;,&quot;movie_theater&quot;,&quot;moving_company&quot;,&quot;museum&quot;,&quot;night_club&quot;,&quot;painter&quot;,&quot;park&quot;,&quot;parking&quot;,&quot;pet_store&quot;,&quot;pharmacy&quot;,&quot;physiotherapist&quot;, &quot;plumber&quot;,&quot;police&quot;,&quot;post_office&quot;,&quot;real_estate_agency&quot;,&quot;restaurant&quot;,&quot;roofing_contractor&quot;,&quot;rv_park&quot;,&quot;school&quot;,&quot;shoe_store&quot;,&quot;shopping_mall&quot;,&quot;spa&quot;,&quot;stadium&quot;,&quot;storage&quot;,&quot;store&quot;,&quot;subway_station&quot;,&quot;synagogue&quot;,&quot;taxi_stand&quot;,&quot;train_station&quot;,&quot;transit_station&quot;,&quot;travel_agency&quot;,&quot;university&quot;,&quot;veterinary_care&quot;,&quot;zoo&quot;],</replace>
+      <replace>],           &quot;info&quot;</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -85,9 +70,11 @@
         <option value="$PROJECT_DIR$/src/routes/getNearbyPlaces.php" />
         <option value="$PROJECT_DIR$/src/routes/getNearbyPlacesRadar.php" />
         <option value="$PROJECT_DIR$/src/routes/searchPlacesByText.php" />
-        <option value="$PROJECT_DIR$/src/metadata/metadata.json" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/routes/addPlace.php" />
+        <option value="$PROJECT_DIR$/src/routes/getImageURL.php" />
+        <option value="$PROJECT_DIR$/src/metadata/metadata.json" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -122,6 +109,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -186,8 +175,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -206,12 +193,13 @@
       <updated>1496143822777</updated>
       <workItem from="1496143824172" duration="816000" />
       <workItem from="1496246908457" duration="1243000" />
-      <workItem from="1496676746477" duration="105000" />
+      <workItem from="1496676746477" duration="133000" />
+      <workItem from="1502801932842" duration="1461000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2164000" />
+    <option name="totallyTimeSpent" value="3653000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1985" y="24" width="1855" height="1056" extended-state="6" />
@@ -247,6 +235,49 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/metadata/metadata.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3225">
+          <caret line="215" column="178" lean-forward="false" selection-start-line="215" selection-start-column="178" selection-end-line="215" selection-end-column="178" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/routes/searchPlacesByText.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="28" column="4" lean-forward="false" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/routes/getNearbyPlaces.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="24" lean-forward="true" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="1155">
+            <caret line="77" column="84" lean-forward="true" selection-start-line="77" selection-start-column="84" selection-end-line="77" selection-end-column="84" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/routes/addPlace.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/metadata/metadata.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3780">
@@ -290,29 +321,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Dockerfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="20" lean-forward="true" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/getImageURL.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1005">
-          <caret line="67" column="42" lean-forward="true" selection-start-line="67" selection-start-column="42" selection-end-line="67" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/getNearbyPlacesRadar.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/routes/getPlaceDetails.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
@@ -329,26 +337,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/searchPlacesByText.php">
+    <entry file="file://$PROJECT_DIR$/src/routes/addPlace.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="4" lean-forward="false" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/getNearbyPlaces.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="24" lean-forward="true" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/metadata/metadata.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="215" column="178" lean-forward="false" selection-start-line="215" selection-start-column="178" selection-end-line="215" selection-end-column="178" />
+        <state relative-caret-position="135">
+          <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -364,10 +356,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/addPlace.php">
+    <entry file="file://$PROJECT_DIR$/src/routes/searchPlacesByText.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="28" column="4" lean-forward="false" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/routes/getNearbyPlaces.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="18" column="28" lean-forward="true" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/routes/getNearbyPlacesRadar.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="26" column="74" lean-forward="true" selection-start-line="26" selection-start-column="74" selection-end-line="26" selection-end-column="74" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dockerfile">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
-          <caret line="46" column="5" lean-forward="true" selection-start-line="46" selection-start-column="5" selection-end-line="46" selection-end-column="5" />
+          <caret line="26" column="19" lean-forward="true" selection-start-line="26" selection-start-column="19" selection-end-line="26" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/routes/getImageURL.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="585">
+          <caret line="59" column="76" lean-forward="true" selection-start-line="59" selection-start-column="76" selection-end-line="59" selection-end-column="76" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/metadata/metadata.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="940" column="20" lean-forward="false" selection-start-line="940" selection-start-column="20" selection-end-line="940" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="19" lean-forward="false" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
           <folding />
         </state>
       </provider>

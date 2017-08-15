@@ -1,64 +1,63 @@
 <?php
 
 $app->post('/api/GooglePlaces/getImageURL', function ($request, $response, $args) {
-    $settings =  $this->settings;
+    $settings = $this->settings;
 
-    
+
     $data = $request->getBody();
     $post_data = json_decode($data, true);
-    if(!isset($post_data['args'])) {
+    if (!isset($post_data['args'])) {
         $data = $request->getParsedBody();
         $post_data = $data;
     }
-    
+
     $error = [];
-    if(empty($post_data['args']['apiKey'])) {
+    if (empty($post_data['args']['apiKey'])) {
         $error[] = 'apiKey';
     }
-    if(empty($post_data['args']['image_id'])) {
+    if (empty($post_data['args']['image_id'])) {
         $error[] = 'image_id';
     }
-    if(empty($post_data['args']['max_width']) && empty($post_data['args']['max_height'])) {
+    if (empty($post_data['args']['max_width']) && empty($post_data['args']['max_height'])) {
         $error[] = 'indicate either max_width or max_height';
     }
-    
-    if(!empty($error)) {
+
+    if (!empty($error)) {
         $result['callback'] = 'error';
         $result['contextWrites']['to']['status_code'] = "REQUIRED_FIELDS";
         $result['contextWrites']['to']['status_msg'] = "Please, check and fill in required fields.";
         $result['contextWrites']['to']['fields'] = $error;
         return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($result);
     }
-    
-    
-    
+
+
     $query['key'] = $post_data['args']['apiKey'];
     $query['photoreference'] = $post_data['args']['image_id'];
-    if(!empty($post_data['args']['max_width'])) {
+    if (!empty($post_data['args']['max_width'])) {
         $query['maxwidth'] = $post_data['args']['max_width'];
     }
-    if(!empty($post_data['args']['max_height'])) {
+    if (!empty($post_data['args']['max_height'])) {
         $query['maxheight'] = $post_data['args']['max_height'];
     }
-    
-    
-    $query_str = $settings['api_url'] . 'photo?'. http_build_query($query);
-    
+
+
+    $query_str = $settings['api_url'] . 'photo?' . http_build_query($query);
+
     $client = $this->httpClient;
 
     try {
 
-        $resp = $client->get( $query_str, 
+        $resp = $client->get($query_str,
             [
                 'verify' => false,
                 'allow_redirects' => false
-            ]);        
+            ]);
         $responseBody = $resp->getBody()->getContents();
         preg_match_all('#<.*?href=["\'](.*?)["\'].*?>#uims', $responseBody, $matches);
-                
-        if(!empty($matches[1][0])) {
+
+        if (!empty($matches[1][0])) {
             $result['callback'] = 'success';
-            $result['contextWrites']['to'] = $matches[1][0];
+            $result['contextWrites']['to'] = ["imageUrl" => $matches[1][0]];
         } else {
             $result['callback'] = 'error';
             $result['contextWrites']['to']['status_code'] = 'API_ERROR';
@@ -68,7 +67,7 @@ $app->post('/api/GooglePlaces/getImageURL', function ($request, $response, $args
     } catch (\GuzzleHttp\Exception\ClientException $exception) {
 
         $responseBody = $exception->getResponse()->getBody()->getContents();
-        if(empty(json_decode($responseBody))) {
+        if (empty(json_decode($responseBody))) {
             $out = $responseBody;
         } else {
             $out = json_decode($responseBody);
@@ -80,7 +79,7 @@ $app->post('/api/GooglePlaces/getImageURL', function ($request, $response, $args
     } catch (GuzzleHttp\Exception\ServerException $exception) {
 
         $responseBody = $exception->getResponse()->getBody()->getContents();
-        if(empty(json_decode($responseBody))) {
+        if (empty(json_decode($responseBody))) {
             $out = $responseBody;
         } else {
             $out = json_decode($responseBody);
