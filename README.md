@@ -1,21 +1,17 @@
 [![](https://scdn.rapidapi.com/RapidAPI_banner.png)](https://rapidapi.com/package/GooglePlaces/functions?utm_source=RapidAPIGitHub_GooglePlacesFunctions&utm_medium=button&utm_content=RapidAPI_GitHub)
 
-#Google Places API Web Service package
-===================
-
-
+# GooglePlacesAPI Package
 Add location awareness for more contextual results.
+* Domain: google.com
+* Credentials: apiKey
 
-----------
-
-How to get `apiKey`
----------------
-
- 1. Go to [Google Developers Console](https://console.developers.google.com/?authuser=1);
- 2. Select a project, or create a new one.
- 3. [Open the API Library](https://console.developers.google.com/apis/library?project=_&authuser=1) in the Google Developers Console. If prompted, select a project or create a new one. Select the **Enabled APIs** link in the API section to see a list of all your enabled APIs. Make sure that the API is on the list of enabled APIs. If you have not enabled it, select the API from the list of APIs, then select the **Enable API** button for the API.
- 4. In the sidebar on the left, select **Credentials**.
- 5. If your project has no API key for the server, create it now - **Add credentials > API key > Server key**;
+## How to get credentials: 
+0. Go to [Google Developers Console](https://console.developers.google.com/?authuser=1)
+1. Select a project, or create a new one
+2. Press **Continue** to activate API key
+3. Select 'Enable APIs and services' to enable the APIs you want to use
+4. In the sidebar on the left, select **Credentials**
+5. If your project has no API key for the server, create it now - **Create credentials > API key**
 
 ## Custom datatypes: 
  |Datatype|Description|Example
